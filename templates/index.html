@@ -5,6 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EncryptEase</title>
+  <meta name="description" content="EncryptEase provides secure, effortless encryption for your sensitive data. Generate keys, encrypt, and decrypt messages easily with our user-friendly interface.">
+  <meta name="keywords" content="encryption, data security, key generation, encrypt message, decrypt message, secure data, EncryptEase">
+  <meta name="author" content="Subhajit Gorai">
+  <link rel="canonical" href="https://yourwebsiteurl.com">
+
+  <meta property="og:title" content="EncryptEase - Secure Your Data with Effortless Encryption">
+  <meta property="og:description" content="EncryptEase provides secure, effortless encryption for your sensitive data. Generate keys, encrypt, and decrypt messages easily with our user-friendly interface.">
+  <meta property="og:url" content="https://yourwebsiteurl.com">
+  <meta property="og:image" content="https://yourwebsiteurl.com/static/images/og-image.jpg">
+  <meta property="og:type" content="website">
   <!-- css -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
@@ -24,6 +34,31 @@
 
   <!-- favicon -->
   <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.svg')}}" type="image/x-icon">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "EncryptEase",
+      "url": "https://yourwebsiteurl.com",
+      "author": {
+        "@type": "Person",
+        "name": "Subhajit Gorai"
+      },
+      "description": "EncryptEase provides secure, effortless encryption for your sensitive data. Generate keys, encrypt, and decrypt messages easily with our user-friendly interface.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "EncryptEase"
+      },
+      "image": "https://yourwebsiteurl.com/static/images/og-image.jpg",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://yourwebsiteurl.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
 
 </head>
 
@@ -136,13 +171,12 @@
         <div id="about" class="h1" data-Header="">About</div>
         <div class="about-info info">
           <br>
-          This website is for generating strong passwords,
+          Welcome to EncryptEase, your go-to solution for effortless data encryption and security.
           <br>
-          No data about the passwords are stored, hence its completely safe.
+          Our platform empowers you to generate secure keys, encrypt messages, and decrypt them with ease, ensuring that your sensitive information remains safe and confidential.
           <br>
-          Feel free to use this as much as you want.
-          <br><br>
-          This website is made by: Subhajit Gorai
+          <br>
+          Created by Subhajit Gorai, EncryptEase prioritizes user privacy and data security by not storing any user data. Feel free to use our services as much as you need, knowing that your privacy is our top concern.
         </div>
       </div>
 
