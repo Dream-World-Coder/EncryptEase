@@ -1,0 +1,41 @@
+
+:root{
+  --h1-pad-left: 5rem;
+}
+
+#s2{
+  height: 120vh;
+}
+
+.about{
+  padding-top: 15vh;
+  height: 35vh;
+}
+/* info => */
+
+.h1{
+  font-family: Dahlia, 'Courier New', Courier, monospace;
+  font-size: 3.4em;
+  padding-left: calc(var(--h1-pad-left) - 2rem);
+  border-bottom: 2px solid;
+  /* margin-left: calc(var(--h1-pad-left) + 1rem); */
+  margin-left: 12%;
+  margin-right: 70%;
+}
+
+.contact{
+  height: 30vh;
+  margin-top: 25vh;
+}
+
+.info{
+  padding-left: calc(var(--h1-pad-left) + 10rem);
+  font-family: MondiaThin, 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+}
+
+#portfolio{
+  display: block;
+  position: relative;
+  top: 6px;
+}

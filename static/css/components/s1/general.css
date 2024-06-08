@@ -1,0 +1,55 @@
+#s1 {
+  opacity: 1;
+  height: 310vh;
+}
+
+
+:root{
+  --heading-font-size: 3.4rem;
+  --margin-top: 30vh;
+  --flex-gap: 1.5rem;
+}
+
+
+
+/* main */
+.main {
+  height: calc(110vh - 20vh);
+  margin-top: 34vh;
+}
+
+.forms {
+  margin-top: var(--margin-top);
+}
+
+.gen_key,
+.encrypt_input,
+.decrypt_input {
+  margin-bottom: var(--flex-gap);
+}
+
+/* pb = powerful button */
+.pb{
+  margin-bottom: 5vh;
+}
+
+
+.results {
+  position: relative;
+  height: 10rem;
+  width: 30vw;
+  border-radius: 3rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding: 10px;
+  overflow: hidden;
+}
+/* ---------- */
+
+#copy-btn {
+  display: block;
+}
+
+.buttons {
+  gap: var(--flex-gap);
+}

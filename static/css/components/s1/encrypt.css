@@ -1,0 +1,30 @@
+
+.encrypt_subheading{
+  position: relative;
+}
+
+.encrypt_subheading::before{
+  content: 'Enter any message and a specific key to cipher it accordingly. For every specific key the encryption will be different. is done using <cryptography> library.';
+  position: absolute;
+  top: -50%;
+  right: 25%;
+  width: 300px;
+  height: 400px;
+  /* background-color: var(--clr2); */
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.247);
+  border: 2px solid rgba(255, 255, 255, 0.864);
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+
+  z-index: 100;
+  transform: scale3d(0,0,0);
+  color: black;
+  padding: 20px;
+  font-size: 1.5rem;
+}
+
+.encrypt_subheading:hover::before{
+  transform: scale3d(1,1,1);
+}

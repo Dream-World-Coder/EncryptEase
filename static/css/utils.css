@@ -1,0 +1,222 @@
+/* flex-positions */
+.flexed{display: flex;align-items: center;justify-content: center;}
+
+.flex{display: flex;}
+.flex-col{flex-direction: column;}
+.justify-center{justify-content: center;}
+.justify-evenly{justify-content: space-evenly;}
+.justify-between{justify-content: space-between;}
+.justify-start{justify-content: flex-start;}
+.align-center{align-items: center;}
+.align-evenly{align-items: space-evenly;}
+.align-between{align-items: space-between;}
+.align-start{align-items: flex-start;}
+/* text-align */
+.text-center{text-align: center;}
+
+.f-gap-1{
+  gap: 0.5rem;
+}
+
+.f-gap-2{
+  gap: 1rem;
+}
+
+.centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cen{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* grid */
+.grid{display: grid;}
+.grid-col-3{grid-template-columns: repeat(3, 1fr);}
+
+/* padding */
+.p-1{padding: 1rem;}
+.p-2{padding: 2rem;}
+.p-3{padding: 3rem;}
+.p-4{padding: 4rem;}
+.p-5{padding: 5rem;}
+
+/* margin */
+.m-1{margin: 1rem;}
+.m-2{margin: 2rem;}
+.m-3{margin: 3rem;}
+.m-4{margin: 4rem;}
+.m-5{margin: 5rem;}
+
+
+/* border */
+/* .border{border: 1px solid var(--border-color);} */
+.border{border: 1px solid;}
+
+/* border-radius */
+.rounded{border-radius: 0.5rem;}
+
+
+
+/* text-decoration */
+.underline{text-decoration: underline;}
+.dotted{text-decoration: dotted;}
+.border-bottom{border-bottom: 1px solid var(--border-color);}
+
+
+
+
+/* box-shadows */
+.light-shadow{
+  box-shadow: 0 0 10px var(--shadow-color-light);
+}
+.dark-shadow{
+  box-shadow: 0 0 10px var(--shadow-color-dark);
+}
+
+/* text shadows */
+.light-text-shadow{
+  text-shadow: 0 0 10px var(--shadow-color-light);
+}
+.dark-text-shadow{
+  text-shadow: 0 0 10px var(--shadow-color-dark);
+}
+
+
+
+
+
+
+/* a tags */
+a{
+  text-decoration: none;
+}
+
+
+
+/* backgrounds */
+.bg-set{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  
+}
+
+/*  div positions  */
+.full{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* js classes */
+.hidden{display: none;}
+.visible{display: inline-block;}
+
+.invert{filter: invert(100%);}
+.invert-blend{mix-blend-mode: difference;}
+
+.opacity-0{
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.less-focused{
+  filter: opacity(0.75) grayscale(0.8) brightness(0.6);
+}
+
+/* buttons */
+.btn{
+  width: 90px;
+  height: 40px;
+  border: 3px solid var(--bg2);
+  outline: none;
+  color: rgb(0, 0, 0);
+  background-color: var(--bg1);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 30px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.btn:hover{
+  /* transform: translateY(-2px);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),
+              0 6px 6px 0 rgba(0,0,0,0.2);
+  transition: all 0.3s; */
+  background-color: var(--bg2);
+  color: white;
+  transition: all 0.3s;
+}
+
+/* input boxes */
+input{
+  /* width: 400px; */
+  width: 200px;
+  height: 40px;
+  /* border: 2px solid var(--bg2); */
+  border: 2px solid black;
+
+  outline: none;
+  color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 30px;
+  font-size: 1rem;
+  display: flex;
+  padding-left: 20px;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+  margin: 0 10px;
+  overflow: hidden;
+}
+
+::placeholder{
+  color: rgba(0, 0, 0, 0.411);
+}
+
+label{
+  font-family: MondiaThin;
+  font-size: 1.5rem;
+}
+
+.dahlia{
+  font-family: Dahlia, 'Courier New', Courier, monospace;
+}
+
+.mondia{
+  font-family: Mondia, 'Courier New', Courier, monospace;
+}
+
+.scribe{
+  font-family: MilitaryScribe, 'Courier New', Courier, monospace;
+}
+
+.glass{
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.247);
+  border: 2px solid rgba(255, 255, 255, 0.864);
+}
+
+
+.dark-glass{
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  background-color: rgba(0, 0, 0, 0.117);
+  border: 2px solid rgba(0, 0, 0, 0.864);
+}
+

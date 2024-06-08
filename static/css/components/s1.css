@@ -1,0 +1,184 @@
+#s1 {
+  opacity: 1;
+  height: 310vh;
+}
+
+:root{
+  --heading-font-size: 3.4rem;
+}
+
+header{
+  position: relative;
+}
+
+.icon{
+  position: fixed;
+  top: 4vh;
+  left: 4vw;
+  height: 8vh;
+  width: 8vw;
+  font-family: MilitaryScribe;
+  font-size: 1.6rem;
+}
+
+.sun,
+.moon,
+.invert-button {
+  /* display: none; */
+  position: fixed;
+  top: 4vh;
+  right: 3vw;
+  height: 8vh;
+  width: 8vw;
+  font-family: MilitaryScribe;
+  font-size: 1.6rem;
+  z-index: 99;
+}
+
+.invert-button{
+  z-index: 909;
+  background-color: transparent;
+}
+
+.sun{
+  display: none;
+}
+
+
+
+
+
+
+
+
+.heading {
+  padding-top: 17vh;
+  height: 20vh;
+  /* font-size: 4.6rem; */
+  font-size: var(--heading-font-size);
+  font-family: Tangerine;
+  line-height: 2.5rem;
+}
+
+.strong{
+  font-size: calc(var(--heading-font-size) + 0.3rem);
+}
+
+.app_name{
+  font-size: 4.6rem;
+}
+
+.heading1 {
+  margin-left: 20%;
+  font-style: bold;
+  font-size: calc(var(--heading-font-size) + 0.5rem);
+}
+
+.heading2 {
+  margin-left: 30%;
+}
+
+
+.subheading{
+  height: 15vh;
+  font-family: Mondia,'Courier New', Courier, monospace;
+  font-size: calc(var(--heading-font-size) - 0.5rem);
+}
+
+
+
+
+
+/* main */
+.main {
+  height: calc(110vh - 20vh);
+  margin-top: 34vh;
+}
+
+:root{
+  --margin-top: 30vh;
+}
+
+.key_gen{
+  margin-top: 0vh;
+}
+
+.forms {
+  margin-top: var(--margin-top);
+}
+
+:root {
+  --flex-gap: 1.5rem;
+}
+
+.gen_key,
+.encrypt_input,
+.decrypt_input {
+  margin-bottom: var(--flex-gap);
+}
+
+.key_input {
+  margin-bottom: var(--flex-gap);
+}
+
+/* pb = powerful button */
+.pb{
+  margin-bottom: 5vh;
+}
+
+
+.results {
+  position: relative;
+  height: 10rem;
+  width: 30vw;
+  border-radius: 3rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding: 10px;
+  overflow: hidden;
+}
+/* ---------- */
+.res{
+  height: 3rem;
+  margin-bottom: 5vh;
+}
+
+#copy-btn {
+  display: block;
+}
+
+.buttons {
+  gap: var(--flex-gap);
+}
+
+
+
+
+@media (max-width: 570px) {
+
+  .heading {
+    margin-top: 5vh;
+    height: 10vh;
+    font-size: 2.6rem;
+  }
+
+  .heading1 {
+    margin-left: calc(5%);
+  }
+
+  .heading2 {
+    margin-left: calc(20%);
+  }
+
+  .forms {
+    margin-top: 8vh;
+  }
+  
+  :root {
+    --flex-gap: 1rem;
+  }
+  
+  label{
+    font-size: 1rem !important;
+  }
+}

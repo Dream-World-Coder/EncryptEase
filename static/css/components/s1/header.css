@@ -1,0 +1,78 @@
+
+header{
+  position: relative;
+}
+
+.icon{
+  position: fixed;
+  top: 4vh;
+  left: 4vw;
+  height: 8vh;
+  width: 8vw;
+  font-family: MilitaryScribe;
+  font-size: 1.6rem;
+}
+
+.sun,
+.moon,
+.invert-button {
+  /* display: none; */
+  position: fixed;
+  top: 4vh;
+  right: 3vw;
+  height: 8vh;
+  width: 8vw;
+  font-family: MilitaryScribe;
+  font-size: 1.6rem;
+  z-index: 99;
+}
+
+.invert-button{
+  z-index: 909;
+  background-color: transparent;
+}
+
+.sun{
+  display: none;
+}
+
+
+
+
+
+
+
+
+.heading {
+  padding-top: 17vh;
+  height: 20vh;
+  /* font-size: 4.6rem; */
+  font-size: var(--heading-font-size);
+  font-family: Tangerine;
+  line-height: 2.5rem;
+}
+
+.strong{
+  font-size: calc(var(--heading-font-size) + 0.3rem);
+}
+
+.app_name{
+  font-size: 4.6rem;
+}
+
+.heading1 {
+  margin-left: 20%;
+  font-style: bold;
+  font-size: calc(var(--heading-font-size) + 0.5rem);
+}
+
+.heading2 {
+  margin-left: 30%;
+}
+
+
+.subheading{
+  height: 15vh;
+  font-family: Mondia,'Courier New', Courier, monospace;
+  font-size: calc(var(--heading-font-size) - 0.5rem);
+}

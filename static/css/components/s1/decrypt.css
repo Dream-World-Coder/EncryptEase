@@ -1,0 +1,30 @@
+
+.decrypt_subheading{
+  position: relative;
+}
+
+.decrypt_subheading::before{
+  content: 'Enter the decrypted message and provide the same key used to encrypt it for deciphering. If keys do not match, the decryption will fail.';
+  position: absolute;
+  top: -50%;
+  left: 25%;
+  width: 300px;
+  height: 400px;
+  /* background-color: var(--clr2); */
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.247);
+  border: 2px solid rgba(255, 255, 255, 0.864);
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+
+  z-index: 100;
+  transform: scale3d(0,0,0);
+  color: black;
+  padding: 20px;
+  font-size: 1.5rem;
+}
+
+.decrypt_subheading:hover::before{
+  transform: scale3d(1,1,1);
+}
