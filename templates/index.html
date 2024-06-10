@@ -267,13 +267,13 @@
                 alert(data.error);
               } else {
                 if (data.key) {
-                  document.querySelector("key-display").textContent = data.key;
+                  document.querySelector(".key-display").textContent = data.key;
                 }
                 if (data.encrypted_msg) {
-                  document.querySelector("encrypted-msg-display").textContent = data.encrypted_msg;
+                  document.querySelector(".encrypted-msg-display").textContent = data.encrypted_msg;
                 }
                 if (data.decrypted_msg) {
-                  document.querySelector("decrypted-msg-display").textContent = data.decrypted_msg;
+                  document.querySelector(".decrypted-msg-display").textContent = data.decrypted_msg;
                 }
               }
             })
