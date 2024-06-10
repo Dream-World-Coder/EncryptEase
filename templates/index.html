@@ -5,13 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EncryptEase</title>
-  <meta name="description" content="EncryptEase provides secure, effortless encryption for your sensitive data. Generate keys, encrypt, and decrypt messages easily with our user-friendly interface.">
-  <meta name="keywords" content="encryption, data security, key generation, encrypt message, decrypt message, secure data, EncryptEase">
+  <meta name="description"
+    content="EncryptEase provides secure, effortless encryption for your sensitive data. Generate keys, encrypt, and decrypt messages easily with our user-friendly interface.">
+  <meta name="keywords"
+    content="encryption, data security, key generation, encrypt message, decrypt message, secure data, EncryptEase">
   <meta name="author" content="Subhajit Gorai">
   <link rel="canonical" href="https://encryptease.onrender.com">
 
   <meta property="og:title" content="EncryptEase - Secure Your Data with Effortless Encryption">
-  <meta property="og:description" content="EncryptEase provides secure, effortless encryption for your sensitive data. Generate keys, encrypt, and decrypt messages easily with our user-friendly interface.">
+  <meta property="og:description"
+    content="EncryptEase provides secure, effortless encryption for your sensitive data. Generate keys, encrypt, and decrypt messages easily with our user-friendly interface.">
   <meta property="og:url" content="https://encryptease.onrender.com">
   <meta property="og:image" content="https://encryptease.onrender.com/static/images/og-image.png">
   <meta property="og:type" content="website">
@@ -70,19 +73,17 @@
     <!-- icon -->
     <div class="icon borderX flexed">
       <!-- EncryptEase -->
-       <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+      <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
     </div>
 
     <!-- dark - mode -->
     <div id="invert-button" class="invert-button flexed borderX">
       <div id="sun-icon" class="sun flexed">
-        <img alt="sun" class="borderX"
-          src="{{url_for('static', filename='icons/sun.svg')}}">
+        <img alt="sun" class="borderX" src="{{url_for('static', filename='icons/sun.svg')}}">
       </div>
       <div id="moon-icon" class="moon flexed">
-        <img alt="moon" class="borderX"
-          src="{{url_for('static', filename='icons/moon.svg')}}">
-        </div>
+        <img alt="moon" class="borderX" src="{{url_for('static', filename='icons/moon.svg')}}">
+      </div>
     </div>
 
     <!-- nav -->
@@ -92,7 +93,8 @@
     <div class="container full border-x flex-col">
 
       <div class="heading borderX dahliaX flex-col desktop">
-        <div class="heading1 borderX"><span class="scribe app_name">EncryptEase: </span>Secure Your Valuable Information</div>
+        <div class="heading1 borderX"><span class="scribe app_name">EncryptEase: </span>Secure Your Valuable Information
+        </div>
         <div class="heading2 borderX">Effortless Encryption, That <span class="dahlia strong">ONLY YOU</span> Can Decode
         </div>
       </div>
@@ -113,13 +115,13 @@
           <form action="/gen_key" method="post">
             <div class="gen_key flexed">
               <label for="gen_key">Enter Key size(16byte, 24byte or 32byte): </label>
-              <input type="number" name="gen_key" required  id="gen_key" min="16" max="32" step="8"
+              <input type="number" name="gen_key" required id="gen_key" min="16" max="32" step="8"
                 placeholder="Enter Size">
             </div>
             <button class="btn cen pb" type="submit">Get Key</button>
             <div class="results res borderX cen flex align-center justify-start dark-glass mondia">
               key:
-              <div class="generated-password" id="resultDiv0">
+              <div class="generated-password key-display" id="resultDiv0">
                 {{key}}
               </div>
             </div>
@@ -150,13 +152,12 @@
             <div class="cen">
               Encrypted message:
             </div>
-            <div class="generated-password" id="resultDiv1">
+            <div class="generated-password encrypted-msg-display" id="resultDiv1">
               {{encrypted_msg}}
             </div>
           </div>
           <button class="copy-btn btn cen" data-index="1">copy</button>
         </div>
-
 
         <div class="decryption forms border-x">
           <div class="subheading flexed cen decrypt_subheading">Decrypt Message</div>
@@ -181,7 +182,7 @@
           </form>
           <div class="results borderX cen flex-col justify-center align-center f-gap-1 dark-glass mondia">
             Decrypted message:
-            <div class="generated-password" id="resultDiv2">
+            <div class="generated-password decrypted-msg-display" id="resultDiv2">
               {{decrypted_msg}}
             </div>
           </div>
@@ -201,10 +202,12 @@
           <br>
           Welcome to EncryptEase, your go-to solution for effortless data encryption and security.
           <br>
-          My platform empowers you to generate secure keys, encrypt messages, and decrypt them with ease, ensuring that your sensitive information remains safe and confidential.
+          My platform empowers you to generate secure keys, encrypt messages, and decrypt them with ease, ensuring that
+          your sensitive information remains safe and confidential.
           <br>
           <br>
-          Created by Subhajit Gorai, EncryptEase prioritizes user privacy and data security by not storing any user data. Feel free to use our services as much as you need, knowing that your privacy is our top concern.
+          Created by Subhajit Gorai, EncryptEase prioritizes user privacy and data security by not storing any user
+          data. Feel free to use our services as much as you need, knowing that your privacy is our top concern.
         </div>
       </div>
 
@@ -219,7 +222,7 @@
           <!-- email -->
           <div id="e-logo" class="email flexed f-gap-1 justify-start">
             <img src="{{url_for('static', filename='icons/email.svg')}}" alt="">
-             <span>Email</span>
+            <span>Email</span>
           </div>
           <!-- other icons -->
           <div class="icons flex-col f-gap-2 justify-start p-top-1">
@@ -227,12 +230,13 @@
               <a id="github" href="https://github.com/Subha-Py-C" target="_blank" title="github" rel="noopener">
                 <img src="{{url_for('static', filename='icons/github.svg')}}" alt="github">
               </a>
-            GitHub
+              GitHub
             </div>
           </div>
           <!-- portfolio -->
           <div class="portfolio flexed f-gap-1 justify-start">
-            <a id="portfolio" href="https://subha-py-c.github.io/Port-Folio/" target="_blank" title="portfolio" rel="noopener">
+            <a id="portfolio" href="https://subha-py-c.github.io/Port-Folio/" target="_blank" title="portfolio"
+              rel="noopener">
               <img src="{{url_for('static', filename='icons/port.svg')}}" alt="portfolio">
             </a>
             My Portfolio Website
@@ -242,54 +246,54 @@
     </div>
   </section>
 
-  <!-- copy -->
+  <!-- AJAX -->
   <script>
-    function copyToClipboard(index) {
-      // Get the result text from the specified result div
-      var resultDiv = document.querySelector(`#resultDiv${index}`);
-      var resultText = resultDiv.innerText.replace("result: ", "");
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("form").forEach(form => {
+        form.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
 
-      // Create a temporary input element
-      var tempInput = document.createElement("input");
-      tempInput.value = resultText;
-      document.body.appendChild(tempInput);
+          const formData = new FormData(form);
+          const url = form.action;
+          const method = form.method;
 
-      // Select the text in the temporary input element
-      tempInput.select();
-      tempInput.setSelectionRange(0, 99999); // For mobile devices
-
-      // Copy the text inside the temporary input element
-      document.execCommand("copy");
-
-      // Remove the temporary input element
-      document.body.removeChild(tempInput);
-
-      // Alert the user that the password has been copied
-      alert("Password copied to clipboard: " + resultText);
-    }
-
-    // Attach click event listeners to each copy button
-    var copyBtns = document.querySelectorAll(".copy-btn");
-    copyBtns.forEach(function(btn, index) {
-      btn.addEventListener("click", function() {
-        copyToClipboard(index);
+          fetch(url, {
+            method: method,
+            body: formData
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data.error) {
+                alert(data.error);
+              } else {
+                if (data.key) {
+                  document.querySelector("key-display").textContent = data.key;
+                }
+                if (data.encrypted_msg) {
+                  document.querySelector("encrypted-msg-display").textContent = data.encrypted_msg;
+                }
+                if (data.decrypted_msg) {
+                  document.querySelector("decrypted-msg-display").textContent = data.decrypted_msg;
+                }
+              }
+            })
+            .catch(error => console.error("Error:", error));
+        });
       });
     });
   </script>
 
+  <!-- copy -->
+  <script src="{{url_for('static', filename='js/copy.js')}}" type="text/javascript"></script>
+
   <!-- paste -->
-  <script>
-    function pasteText(inputId) {
-      navigator.clipboard.readText().then(
-        clipText => document.getElementById(inputId).value = clipText);
-    }
-  </script>
+  <script src="{{url_for('static', filename='js/paste.js')}}" type="text/javascript"></script>
 
   <!-- dark mode -->
   <script src="{{url_for('static', filename='js/dark-mode.js')}}" type="text/javascript"></script>
 
   <!-- email -->
-   <script src="{{url_for('static', filename='js/email.js')}}" type="text/javascript"></script>
+  <script src="{{url_for('static', filename='js/email.js')}}" type="text/javascript"></script>
 </body>
 
 </html>

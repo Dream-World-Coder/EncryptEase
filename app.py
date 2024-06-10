@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, g
+from flask import Flask, render_template, request, g, redirect, url_for
 import os
 import logging
 from user_agents import parse
@@ -52,11 +52,12 @@ def before_request():
 def home():
     return render_template('index.html')
 
+
 @app.route('/gen_key', methods=['POST'])
 def gen_key():
     key_size = int(request.form["gen_key"])
     key = make_random_key(key_size=key_size)
-    return render_template('index.html', key=key.hex())  # Convert key to hex for display
+    return {"key": key.hex()}
 
 @app.route('/encrypt', methods=['POST'])
 def encrypt():
@@ -65,9 +66,9 @@ def encrypt():
     try:
         key = bytes.fromhex(key_hex)  # Convert hex string back to bytes
         encrypted_msg = encrypt_message(key=key, message=message.encode('utf-8'))
-        return render_template('index.html', encrypted_msg=encrypted_msg.decode('utf-8'), key=key_hex)
+        return {"encrypted_msg": encrypted_msg.decode('utf-8'), "key": key_hex}
     except Exception as e:
-        return render_template('index.html', error=f"Encryption error: {e}")
+        return {"error": f"Encryption error: {e}"}
 
 @app.route('/decrypt', methods=['POST'])
 def decrypt():
@@ -76,12 +77,13 @@ def decrypt():
     try:
         key = bytes.fromhex(key_hex)  # Convert hex string back to bytes
         decrypted_msg = decrypt_message(key=key, ciphertext=encrypted_msg.encode('utf-8'))
-        return render_template('index.html', decrypted_msg=decrypted_msg.decode('utf-8'), key=key_hex)
+        return {"decrypted_msg": decrypted_msg.decode('utf-8'), "key": key_hex}
     except Exception as e:
-        return render_template('index.html', error=f"Decryption error: {e}")
+        return {"error": f"Decryption error: {e}"}
+
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=5001)
+    app.run(debug=False, host='0.0.0.0', port=5500)
 
   
   # key not required, add a deault value, and id= generate button, also add doccumnetation
