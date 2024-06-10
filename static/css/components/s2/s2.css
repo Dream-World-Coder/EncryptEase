@@ -1,0 +1,57 @@
+:root {
+  --h1-pad-left: 5rem;
+}
+
+#s2 {
+  height: calc(150vh * var(--base-value) / 18);
+}
+
+.about {
+  padding-top: calc(15vh * var(--base-value) / 18);
+  height: calc(35vh * var(--base-value) / 18);
+  height: 80vh;
+}
+
+.h1 {
+  font-family: Dahlia, 'Courier New', Courier, monospace;
+  font-size: calc(3.4em * var(--base-value) / 18);
+  padding-left: calc(var(--h1-pad-left) * var(--base-value) / 18 - 2rem);
+  border-bottom: calc(2px * var(--base-value) / 18) solid;
+  margin-left: calc(12% * var(--base-value) / 18);
+  margin-right: calc(70% * var(--base-value) / 18);
+}
+
+.contact {
+  height: calc(30vh * var(--base-value) / 18);
+  /* margin-top: calc(25vh * var(--base-value) / 18); */
+}
+
+.info {
+  padding-left: calc(var(--h1-pad-left) * var(--base-value) / 18 + 10rem);
+  font-family: MondiaThin, 'Courier New', Courier, monospace;
+  font-size: calc(1.5rem * var(--base-value) / 18);
+}
+
+#portfolio {
+  display: block;
+  position: relative;
+  top: calc(6px * var(--base-value) / 18);
+}
+
+@media (max-width: 767px) {
+  .h1 {
+    margin-right: calc(50% * var(--base-value) / 18);
+  }
+
+  .info {
+    padding-left: calc(var(--h1-pad-left) * var(--base-value) / 18 - 3rem);
+  }
+
+  .about {
+    height: 90vh;
+  }
+
+  .contact{
+    height: 40vh;
+  }
+}

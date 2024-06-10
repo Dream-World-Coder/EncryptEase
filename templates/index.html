@@ -8,39 +8,39 @@
   <meta name="description" content="EncryptEase provides secure, effortless encryption for your sensitive data. Generate keys, encrypt, and decrypt messages easily with our user-friendly interface.">
   <meta name="keywords" content="encryption, data security, key generation, encrypt message, decrypt message, secure data, EncryptEase">
   <meta name="author" content="Subhajit Gorai">
-  <link rel="canonical" href="https://yourwebsiteurl.com">
+  <link rel="canonical" href="https://encryptease.onrender.com">
 
   <meta property="og:title" content="EncryptEase - Secure Your Data with Effortless Encryption">
   <meta property="og:description" content="EncryptEase provides secure, effortless encryption for your sensitive data. Generate keys, encrypt, and decrypt messages easily with our user-friendly interface.">
-  <meta property="og:url" content="https://yourwebsiteurl.com">
-  <meta property="og:image" content="https://yourwebsiteurl.com/static/images/og-image.jpg">
+  <meta property="og:url" content="https://encryptease.onrender.com">
+  <meta property="og:image" content="https://encryptease.onrender.com/static/images/og-image.png">
   <meta property="og:type" content="website">
   <!-- css -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/fonts.css')}}">
 
   <!-- components s1 -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/components/s1/general.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/components/s1/header.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/components/s1/key_gen.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/components/s1/encrypt.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/components/s1/decrypt.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/components/s1/general.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/components/s1/header.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/components/s1/key_gen.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/components/s1/encrypt.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/components/s1/decrypt.css')}}">
 
   <!-- components s2 -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/components/s2.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/components/s2/s2.css')}}">
 
   <!-- utils -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/utils.css') }}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/utils.css')}}">
 
   <!-- favicon -->
-  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.svg')}}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{url_for('static', filename='images/favicon.png')}}" type="image/x-icon">
 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "EncryptEase",
-      "url": "https://yourwebsiteurl.com",
+      "url": "https://encryptease.onrender.com",
       "author": {
         "@type": "Person",
         "name": "Subhajit Gorai"
@@ -50,35 +50,60 @@
         "@type": "Organization",
         "name": "EncryptEase"
       },
-      "image": "https://yourwebsiteurl.com/static/images/og-image.jpg",
+      "image": "https://encryptease.onrender.com/static/images/og-image.jpg",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://yourwebsiteurl.com/?q={search_term_string}",
+        "target": "https://encryptease.onrender.com/?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
-    </script>
-    
+  </script>
 
 </head>
 
 <body>
-  <header>
-    <div class="icon">EncryptEase</div>
-    <div id="invert-button" class="invert-button">
-      <div id="sun-icon" class="sun borderX"><img alt="sun" class="borderX"
-          src="{{ url_for('static', filename='icons/sun.svg')}}"></div>
-      <div id="moon-icon" class="moon borderX"><img alt="moon" class="borderX"
-          src="{{ url_for('static', filename='icons/moon.svg')}}"></div>
+  <noscript>
+    Enable javascript to see this
+  </noscript>
+
+  <header class="flex align-center justify-between borderX">
+    <!-- icon -->
+    <div class="icon borderX flexed">
+      <!-- EncryptEase -->
+       <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
     </div>
+
+    <!-- dark - mode -->
+    <div id="invert-button" class="invert-button flexed borderX">
+      <div id="sun-icon" class="sun flexed">
+        <img alt="sun" class="borderX"
+          src="{{url_for('static', filename='icons/sun.svg')}}">
+      </div>
+      <div id="moon-icon" class="moon flexed">
+        <img alt="moon" class="borderX"
+          src="{{url_for('static', filename='icons/moon.svg')}}">
+        </div>
+    </div>
+
+    <!-- nav -->
   </header>
 
   <section id="s1" class="bg-set borderX">
     <div class="container full border-x flex-col">
 
-      <div class="heading borderX dahliaX flex-col">
-        <div class="heading1 borderX"><span class="scribe app_name">EncryptEase: </span>Secure Your Data</div>
+      <div class="heading borderX dahliaX flex-col desktop">
+        <div class="heading1 borderX"><span class="scribe app_name">EncryptEase: </span>Secure Your Valuable Information</div>
         <div class="heading2 borderX">Effortless Encryption, That <span class="dahlia strong">ONLY YOU</span> Can Decode
+        </div>
+      </div>
+
+      <div class="heading borderX flex-col phone">
+        <div class="heading1 cen borderX">
+          <span class="scribe app_name">EncryptEase</span>
+        </div>
+        <br>
+        <div class="heading2 cen borderX">
+          Easily Encrypt, That <span class="dahlia strong">ONLY YOU</span> Can Decode
         </div>
       </div>
 
@@ -109,20 +134,22 @@
               <label for="message">Enter Message to Encrypt: </label>
               <input type="text" name="message" id="message" placeholder="Hi!" required>
               <span class="paste" onclick="pasteText('message')">
-                <img alt="" class="paste-img" src="{{ url_for('static', filename="icons/paste.svg")}}">
+                <img alt="" class="paste-img" src="{{url_for('static', filename='icons/paste.svg')}}">
               </span>
             </div>
             <div class="key_input flexed">
               <label for="key">Enter Key: </label>
               <input type="text" name="key" id="key" placeholder="Enter key" value="c45646a54cb2d7f4e9deaa16975cbd3d">
               <span class="paste" onclick="pasteText('key')">
-                <img alt="" class="paste-img" src="{{ url_for('static', filename="icons/paste.svg")}}">
+                <img alt="" class="paste-img" src="{{url_for('static', filename='icons/paste.svg')}}">
               </span>
             </div>
             <button class="btn cen pb" type="submit">Encrypt</button>
           </form>
-          <div class="results borderX cen flexed f-gap-1 dark-glass mondia">
-            Encrypted message:
+          <div class="results borderX cen flex-col justify-center align-center f-gap-1 dark-glass mondia">
+            <div class="cen">
+              Encrypted message:
+            </div>
             <div class="generated-password" id="resultDiv1">
               {{encrypted_msg}}
             </div>
@@ -138,7 +165,7 @@
               <label for="encrypted_msg">Enter message to decrypt: </label>
               <input type="text" name="encrypted_msg" id="encrypted_msg" placeholder="none" required>
               <span class="paste" onclick="pasteText('encrypted_msg')">
-                <img alt="" class="paste-img" src="{{ url_for('static', filename="icons/paste.svg")}}">
+                <img alt="" class="paste-img" src="{{url_for('static', filename='icons/paste.svg')}}">
               </span>
             </div>
 
@@ -147,12 +174,12 @@
               <input type="text" name="key" id="key-ii" placeholder="Enter key"
                 value="c45646a54cb2d7f4e9deaa16975cbd3d">
               <span class="paste" onclick="pasteText('key-ii')">
-                <img alt="" class="paste-img" src="{{ url_for('static', filename="icons/paste.svg")}}">
+                <img alt="" class="paste-img" src="{{url_for('static', filename='icons/paste.svg')}}">
               </span>
             </div>
             <button class="btn cen pb" type="submit">Decrypt</button>
           </form>
-          <div class="results borderX cen flexed f-gap-1 dark-glass mondia">
+          <div class="results borderX cen flex-col justify-center align-center f-gap-1 dark-glass mondia">
             Decrypted message:
             <div class="generated-password" id="resultDiv2">
               {{decrypted_msg}}
@@ -167,7 +194,8 @@
   <section id="s2" class="bg-set borderX">
     <div class="s2__container full flex-col">
 
-      <div class="about">
+      <!-- about -->
+      <div class="about borderX">
         <div id="about" class="h1" data-Header="">About</div>
         <div class="about-info info">
           <br>
@@ -180,21 +208,32 @@
         </div>
       </div>
 
-      <div class="contact">
+      <!-- contacts -->
+      <div class="contact borderX">
         <div id="contact" class="h1" data-Header="">Contact</div>
         <div class="contact-info info">
           <br>
           Feel Free to contact me anytime.
           <br>
           <br>
+          <!-- email -->
           <div id="e-logo" class="email flexed f-gap-1 justify-start">
-            <img src="{{ url_for('static', filename="icons/email.svg")}}" alt="">
-             <span>My Email</span>
+            <img src="{{url_for('static', filename='icons/email.svg')}}" alt="">
+             <span>Email</span>
           </div>
-          <div class="icons flexed f-gap-1 justify-start"></div>
+          <!-- other icons -->
+          <div class="icons flex-col f-gap-2 justify-start p-top-1">
+            <div class="github-logo flex align-center f-gap-1">
+              <a id="github" href="https://github.com/Subha-Py-C" target="_blank" title="github" rel="noopener">
+                <img src="{{url_for('static', filename='icons/github.svg')}}" alt="github">
+              </a>
+            GitHub
+            </div>
+          </div>
+          <!-- portfolio -->
           <div class="portfolio flexed f-gap-1 justify-start">
             <a id="portfolio" href="https://subha-py-c.github.io/Port-Folio/" target="_blank" title="portfolio" rel="noopener">
-              <img src="{{ url_for('static', filename="icons/port.svg")}}" alt="portfolio">
+              <img src="{{url_for('static', filename='icons/port.svg')}}" alt="portfolio">
             </a>
             My Portfolio Website
           </div>
@@ -247,10 +286,10 @@
   </script>
 
   <!-- dark mode -->
-  <script src="{{ url_for('static', filename='js/dark-mode.js') }}" type="text/javascript"></script>
+  <script src="{{url_for('static', filename='js/dark-mode.js')}}" type="text/javascript"></script>
 
   <!-- email -->
-   <script src="{{ url_for('static', filename='js/email.js') }}" type="text/javascript"></script>
+   <script src="{{url_for('static', filename='js/email.js')}}" type="text/javascript"></script>
 </body>
 
 </html>

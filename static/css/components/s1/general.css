@@ -1,55 +1,57 @@
+:root {
+  --heading-font-size: calc(3.4rem * var(--base-value) / 18);
+  --margin-top: calc(30vh * var(--base-value) / 18);
+  --flex-gap: calc(1.5rem * var(--base-value) / 18);
+}
+
 #s1 {
   opacity: 1;
-  height: 310vh;
+  height: calc(310vh * var(--base-value) / 18);
 }
 
-
-:root{
-  --heading-font-size: 3.4rem;
-  --margin-top: 30vh;
-  --flex-gap: 1.5rem;
-}
-
-
-
-/* main */
 .main {
-  height: calc(110vh - 20vh);
-  margin-top: 34vh;
+  height: calc(90vh * var(--base-value) / 18);
+  margin-top: calc(34vh * var(--base-value) / 18);
 }
 
 .forms {
-  margin-top: var(--margin-top);
+  margin-top: calc(var(--margin-top) * var(--base-value) / 18);
 }
 
-.gen_key,
-.encrypt_input,
-.decrypt_input {
-  margin-bottom: var(--flex-gap);
+.gen_key, .encrypt_input, .decrypt_input {
+  margin-bottom: calc(var(--flex-gap) * var(--base-value) / 18);
 }
 
-/* pb = powerful button */
-.pb{
-  margin-bottom: 5vh;
+.pb {
+  margin-bottom: calc(5vh * var(--base-value) / 18);
 }
-
 
 .results {
   position: relative;
-  height: 10rem;
-  width: 30vw;
-  border-radius: 3rem;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  padding: 10px;
+  height: calc(10rem * var(--base-value) / 18);
+  width: calc(30vw * var(--base-value) / 18);
+  border-radius: calc(1rem * var(--base-value) / 18);
+  font-size: calc(1.2rem * var(--base-value) / 18);
+  margin-bottom: calc(1rem * var(--base-value) / 18);
+  padding: calc(10px * var(--base-value) / 18);
   overflow: hidden;
 }
-/* ---------- */
 
 #copy-btn {
   display: block;
 }
 
 .buttons {
-  gap: var(--flex-gap);
+  gap: calc(var(--flex-gap) * var(--base-value) / 18);
+}
+
+@media (max-width: 767px) {
+  .results {
+    width: calc(75vw * var(--base-value) / 18);
+    border-radius: 20px;
+  }
+  
+  #key, #key-ii{
+    width: 97px;
+  }
 }

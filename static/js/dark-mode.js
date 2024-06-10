@@ -13,12 +13,12 @@ function applyDarkMode(isDarkMode) {
   
   if (isDarkMode) {
     root.classList.add('invert');
-    sunIcon.style.display = "inline";
+    sunIcon.style.display = "flex";
     moonIcon.style.display = "none";
   } else {
     root.classList.remove('invert');
     sunIcon.style.display = "none";
-    moonIcon.style.display = "inline";
+    moonIcon.style.display = "flex";
   }
 }
 
@@ -28,12 +28,23 @@ function toggleDarkMode() {
   const moonIcon = document.getElementById("moon-icon");
 
   root.classList.toggle('invert');
-  sunIcon.style.display = sunIcon.style.display === "none" ? "inline" : "none";
-  moonIcon.style.display = moonIcon.style.display === "none" ? "inline" : "none";
+  sunIcon.style.display = sunIcon.style.display === "none" ? "flex" : "none";
+  moonIcon.style.display = moonIcon.style.display === "none" ? "flex" : "none";
   
   const isDarkMode = root.classList.contains('invert');
   localStorage.setItem('darkMode', isDarkMode);
 }
+
+
+
+
+
+
+
+
+
+
+
 
 // const sun = document.getElementById("sun-icon");
 // const moon = document.getElementById("moon-icon");
