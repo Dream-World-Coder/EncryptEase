@@ -1,0 +1,192 @@
+:root{
+  --nav-height: 600px;
+  --li-bg-color: rgba(0,0,0, 0.86);
+}
+
+.nav{
+  z-index: 9999;
+  top: 20vh;
+  left: 0;
+  height: var(--nav-height);
+  width: 3rem;
+  border-radius: 0px;
+}
+
+.li{
+  position: relative;
+  display: block;
+  height: calc(var(--nav-height) / 7);
+  width: calc(var(--left) * 1.5);
+  border-radius: 0 30px 30px 0;
+  padding: 10px;
+  background-color: var(--li-bg-color);
+  /* color: whitesmoke; 
+  if i change its color, border color will also change*/
+  font-size: 1.2rem;
+  font-family: MondiaThin,'Courier New', Courier, monospace;
+  transition: all 0.3s;
+}
+
+.li a{
+  display: block;
+  text-decoration: none;
+  color: aliceblue;
+  /* color: bisque; */
+}
+
+.li.active{
+  width: calc(var(--left) * 2.2);
+}
+
+.li.active a{
+  /* color: aliceblue; */
+  color: bisque;
+}
+
+/* ----------------------------------------
+        Phone Nav
+----------------------------------------------------------- */
+/* for desktops none*/
+.nav-phone{
+  display: none;
+}
+
+.nav-phone img{
+  display: block;
+  z-index: 9999999;
+}
+
+.nav-elements{
+  z-index: 8999999;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 65%;
+  background-color: rgba(0, 0, 0, 0.999);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.312),
+              0px 0px 20px rgba(0, 0, 0, 0.246),
+              0px 0px 30px rgba(0, 0, 0, 0.156);
+  transform-origin: right;
+  transform: scale3d(0,1,1);
+  transition: all 0.3s;
+}
+
+.nav-elements.active{
+  transform: scale3d(1,1,1);
+  transition: all 0.3s;
+}
+
+
+
+
+
+:root{
+  --h: 60%;
+  --p-left: 40px;
+}
+.nav-items{
+  height: var(--h);
+  display: flex;
+  padding-top: 80px;
+}
+
+.items{
+  height: calc(var(--h)/7);
+  font-size: 1.8rem;
+  font-weight: 400;
+  font-family: MondiaThin,'Courier New', Courier, monospace;
+  padding-left: var(--p-left);
+}
+
+.items a{
+  display: block;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+
+/* share */
+.share{
+  height: 30%;
+  /* border: 1px solid white; */
+  padding-top: var(--p-left);
+  padding-left: var(--p-left);
+  color: aliceblue !important;
+  /* display: flex; */
+}
+
+.send{
+  font-size: 1.5rem;
+  font-family: MondiaThin, 'Courier New', Courier, monospace;
+}
+
+#share-link{
+  width: 40px;
+  height: 40px;
+  border: 0px solid rgb(189, 23, 189);
+  border-radius: 50%;
+}
+
+#s-logo{
+  width: 26px;
+  height: 26px;
+}
+
+#y-logo{
+  width: 52px;
+  height: 52px;
+}
+
+/* ----------------------------------------
+        Media Queries
+----------------------------------------------------------- */
+
+/* phone */
+@media (max-width: 768px) {
+  :root{
+    /* no use here/ unconfirmed */
+    --nav-height: 40vh;
+  }
+
+  nav,
+  .nav
+  .ul,
+  .li{
+    /* opacity: 0.3; */
+    display: none;
+  }
+
+  .nav-phone{
+    display: flex;
+  }
+}
+
+@media (max-width: 380px) {
+  .items{
+    font-size: 1.3rem;
+  }
+}
+
+/* tablet */
+@media (min-width:769px) and (max-width: 1024px) {
+  nav,
+  .nav
+  .ul,
+  .li{
+    /* opacity: 0.3; */
+    display: none;
+  }
+  .nav-phone{
+    display: flex;
+  }
+  .items,
+  .send{
+    font-size: 2rem;
+    padding-left: 80px;
+  }
+
+  .nav-elements{
+    width: 40%;
+  }
+}

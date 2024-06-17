@@ -1,0 +1,50 @@
+
+/* using header.css root */
+:root{
+  --top: calc(4vh * var(--base-value) / 18);
+  --left: calc(4vw * var(--base-value) / 18);
+
+}
+
+/* why i caanot add it directly in root? document.Element */
+.dark-mode{
+  background-color: black;
+  color: aliceblue;
+}
+
+/* already in utils.css */
+.invert{
+  filter: invert(0.85)contrast(0.8);
+}
+
+/* already in header.css */
+.invert-button{
+  position: relative;
+}
+
+.invert-button::before{
+  position: absolute;
+  content: '';
+  top: calc(-1 * var(--top));
+  right: calc(-1 * var(--left));
+  width: 3000%;
+  height: 3000%;
+  border-radius: 0em 0em 0em 50em;
+  background-color: rgb(255, 255, 255);
+  transform: scale3d(0,0,0);
+  transform-origin: 100% 0%;
+  transition: all 0.0s;
+  z-index: -20;
+}
+
+.invert-button.active::before{
+  transform: scale3d(1,1,1);
+  transition: all 0.681s;
+  z-index: 20;
+}
+
+#sun-icon{
+  display: none;
+}
+
+/* z index problem, only nav is visible no mattter how high i set the z-index */

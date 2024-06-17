@@ -16,7 +16,7 @@
 }
 
 .key_gen_subheading::before {
-  content: 'Generate your unique key, it will be used to encrypt and decrypt your messages files.c45646a54cb2d7f4 e9deaa16975cbd3d is the default key. You should generate a new one to make your encryptions unique.';
+  content: 'Generate your unique key, it will be used to encrypt and decrypt your messages files.c45646a54cb2d7f4 e9deaa16975cbd3d is the default key. You should generate a new one to make your encryptions unique and secure.';
   position: absolute;
   top: calc(-50% * var(--base-value) / 18);
   left: calc(25% * var(--base-value) / 18);
@@ -33,8 +33,31 @@
   color: black;
   padding: calc(20px * var(--base-value) / 18);
   font-size: calc(1.5rem * var(--base-value) / 18);
+  z-index: 200;
 }
 
 .key_gen_subheading:hover::before {
   transform: scale3d(1, 1, 1);
 }
+
+.key_gen_subheading::after{
+  content: '';
+  position: relative;
+  top: 0;
+  left: 0%;
+  width: 40px;
+  height: 80px;
+  background-image: url('../../../icons/tree.svg');
+  background-repeat: no-repeat;
+  z-index: 100;
+}
+
+/* ------------------------------------
+Media Queries:
+  767px >> phone
+  768px - 1024px >> tablet
+  1025px >> desktop
+    ** 768 px ipad mini  == phone[better]
+    ** 1024 px ipad pro == tablet
+    so making 768 to phone max and 769 to tablet least
+------------------------------------ */

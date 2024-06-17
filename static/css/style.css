@@ -2,11 +2,12 @@
   margin: 0;
   bottom: 0;
   box-sizing: border-box;
-}
+ }
 
 :root {
   /* --bg1: antiquewhite; */
   --bg1: bisque;
+  /* --bg1: rgb(254, 254, 254); */
   /* --bg2: linear-gradient(180deg, lightgreen, rgb(212,217,88)); */
   --bg2: rgb(189, 23, 189);
   --bg3: rgb(98, 0, 255);
@@ -27,7 +28,7 @@ html {
 body, html {
   background-color: var(--bg1);
   color: black;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   /* background: url('../images/bg2.svg'); */
   background-position: center;
   background-repeat: no-repeat;
@@ -42,14 +43,23 @@ section {
 }
 
 #s1 {
-  /* background: url('../images/bg1.svg'); */
   z-index: 9;
 }
 
 /* ::-webkit-scrollbar{background-color: #ff0066;} */
 
+/* ------------------------------------
+Media Queries:
+  767px >> phone
+  768px - 1024px >> tablet
+  1025px >> desktop
+    ** 768 px ipad mini  == phone[better]
+    ** 1024 px ipad pro == tablet
+    so making 768 to phone max and 769 to tablet least
+------------------------------------ */
+
 /* tablet */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 769px) and (max-width: 1024px) {
 
   :root {
     --base-value: var(--tablet-base-value);
@@ -57,19 +67,19 @@ section {
 
   section {
     height: calc(110vh * var(--base-value) / 18);
-    padding-left: 80px;
+    padding: 40px;
   }
 }
 
 /* mobile */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   :root {
     --base-value: var(--mobile-base-value);
   }
 
   section {
     height: 85.56vh;
-    padding-left: 80px;
+    padding: 40px;
   }
   
 }

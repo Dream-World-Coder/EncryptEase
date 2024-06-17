@@ -1,9 +1,14 @@
 .decrypt_subheading {
   position: relative;
+  z-index: 100;
+}
+.decrypt_file_subheading {
+  position: relative;
+  z-index: 100;
 }
 
 .decrypt_subheading::before {
-  content: 'Enter any message and a specific key to cipher it accordingly. For every specific key the encryption will be different. is done using <cryptography> library.';
+  content: 'Enter any message or file and a specific key to cipher it accordingly. If the key is not same, then the message can not be be decrypted.';
   position: absolute;
   top: calc(-50% * var(--base-value) / 18);
   left: calc(25% * var(--base-value) / 18);
@@ -25,3 +30,43 @@
 .decrypt_subheading:hover::before {
   transform: scale3d(1, 1, 1);
 }
+
+.decrypt_subheading::after{
+  content: '';
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 80px;
+  background-image: url('../../../icons/aa1.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 200;
+}
+
+
+.decrypt_file_subheading::before{
+  content: '';
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 80px;
+  background-image: url('../../../icons/aa2.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 200;
+}
+
+
+
+
+/* ------------------------------------
+Media Queries:
+  767px >> phone
+  768px - 1024px >> tablet
+  1025px >> desktop
+    ** 768 px ipad mini  == phone[better]
+    ** 1024 px ipad pro == tablet
+    so making 768 to phone max and 769 to tablet least
+------------------------------------ */

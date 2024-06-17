@@ -1,5 +1,8 @@
-encrypt
+encrypt_venv
 .DS_store
 logs
 html-website
 temp.bakup.py
+.vscode
+python_functions/others
+python_functions/Quora2.jpeg

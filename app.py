@@ -1,14 +1,23 @@
-from flask import Flask, render_template, request, g, redirect, url_for
+from flask import Flask, render_template, request, g, redirect, url_for, send_file
 import os
 import logging
 from user_agents import parse
 from python_functions.key_generator import make_random_key
-from python_functions.encryptor import encrypt_message
-from python_functions.decryptor import decrypt_message
+
+    # msg/ Txt ciphers
+from python_functions.encryption.mode_ecb import encrypt_message
+from python_functions.decryption.mode_ecb import decrypt_message
+
+    # File Ciphers
+from python_functions.encryption.file_encrypt.mode_ctr import encrypt_file
+from python_functions.decryption.file_decrypt.mode_ctr import decrypt_file
+
 
 app = Flask(__name__)
 
-# Ensure the log directory exists
+
+
+# Ensuring the log directory exists
 log_dir = "logs"
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)
@@ -48,6 +57,8 @@ def before_request():
     log_request_info()
 
 
+
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -83,19 +94,12 @@ def decrypt():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=5500)
+    app.run(debug=True, host='0.0.0.0', port=5500)
 
   
-  # key not required, add a deault value, and id= generate button, also add doccumnetation
-  # msg = {{msg}} show in sepeate div
   # 16 byte
   # b'\xa8\x11`7\x03x\x0fS\x02\x19\xaa\x80#1\xcb\xb3'
   # Invalid key size (392) for AES.
   # b"b'\\xa8\\x11`7\\x03x\\x0fS\\x02\\x19\\xaa\\x80#1\\xcb\\xb3'"
   
-#   file encrypting, contact svgs, documentations and sidde theke dichu appear on scroll 
-# 
-
-
-
 # contacts er niche dan dik e faq box deoa jete pare
