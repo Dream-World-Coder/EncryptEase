@@ -227,7 +227,7 @@
                 <!-- file -->
                 <div id="encode_file" class="encryption forms border-x">
                     <div class="subheading flexed cen encrypt_file_subheading">Encrypt File</div>
-                    <form action="/encrypt_file" method="post">
+                    <form action="/encrypt_file_route" method="post" enctype="multipart/form-data">
                         <div class="encrypt_input flexed">
                             <label for="file">Choose File[size<{{max_size}}mb]: </label>
                             <input class="f-input" type="file" name="file" id="file" required>
@@ -235,7 +235,7 @@
                                 <img alt="" class="paste-img pst" src="{{url_for('static', filename='icons/paste.svg')}}">
                             </span>
                         </div>
-                        <div class="results borderX cen flex-col justify-center align-center f-gap-1 dark-glass mondia">
+                        <!-- <div class="results borderX cen flex-col justify-center align-center f-gap-1 dark-glass mondia">
                             <div class="dropArea flexed" id="drp1"
                                 ondragenter="dragEnter(event)" 
                                 ondragover="dragOver(event)" 
@@ -244,7 +244,7 @@
                                 >
                                 or<br>Drag and drop files here
                             </div>
-                        </div>
+                        </div> -->
                         <!-- input key -->
                         <div class="key_input flexed">
                             <label for="key">Enter Key: </label>
@@ -293,15 +293,15 @@
                 <!-- file -->
                 <div id="decode_file" class="decryption forms border-x">
                     <div class="subheading flexed cen decrypt_file_subheading">Decrypt File</div>
-                    <form action="/decrypt_file" method="post">
+                    <form action="/decrypt_file_route" method="post" enctype="multipart/form-data">
                         <div class="decrypt_input flexed">
-                            <label for="encrypted_file">Choose File[size<{max_size}mb]: </label>
+                            <label for="encrypted_file">Choose File[size<{{max_size}}mb]: </label>
                             <input class="f-input" type="file" name="encrypted_file" id="encrypted_file" placeholder="none" required>
                             <span class="paste" onclick="pasteFile('encrypted_file')">
                                 <img alt="" class="paste-img pst" src="{{url_for('static', filename='icons/paste.svg')}}">
                             </span>
                         </div>
-                        <div class="results borderX cen flex-col justify-center align-center f-gap-1 dark-glass mondia">
+                        <!-- <div class="results borderX cen flex-col justify-center align-center f-gap-1 dark-glass mondia">
                             <div class="dropArea flexed" id="drp2" ondragenter="dragEnter(event)" 
                             ondragover="dragOver(event)" 
                             ondragleave="dragLeave(event)" 
@@ -309,7 +309,7 @@
                             >
                                 or <br>Drag and drop files here
                             </div>
-                        </div>
+                        </div> -->
                         <!-- input key -->
                         <div class="key_input flexed">
                             <label for="key-ii">Enter Key: </label>
@@ -500,8 +500,35 @@
                 method: method,
                 body: formData
               })
-                .then(response => response.json())
-                .then(data => {
+              .then(response => {
+                if (response.ok) {
+                  // Check if the response is a file download
+                  const contentDisposition = response.headers.get('Content-Disposition');
+                  if (contentDisposition && contentDisposition.indexOf('attachment') !== -1) {
+                    return response.blob();
+                  } else {
+                    return response.json();
+                  }
+                } else {
+                  return response.json().then(data => {
+                    throw new Error(data.error || 'Unknown error');
+                  });
+                }
+              })
+              .then(data => {
+                if (data instanceof Blob) {
+                  // Handle file download
+                  const url = window.URL.createObjectURL(data);
+                  const a = document.createElement('a');
+                  a.style.display = 'none';
+                  a.href = url;
+                  a.download = form.querySelector('input[type="file"]').files[0].name;
+                  document.body.appendChild(a);
+                  a.click();
+                  window.URL.revokeObjectURL(url);
+                  alert("File Processed Successfully!");
+                } else {
+                  // Handle JSON response
                   if (data.error) {
                     alert(data.error);
                   } else {
@@ -514,13 +541,22 @@
                     if (data.decrypted_msg) {
                       document.querySelector(".decrypted-msg-display").textContent = data.decrypted_msg;
                     }
+                    if (data.encrypted_file) {
+                      alert("File Encrypted Successfully!");
+                    }
+                    if (data.decrypted_file) {
+                      alert("File Decrypted Successfully!");
+                    }
                   }
-                })
-                .catch(error => console.error("Error:", error));
+                }
+              })
+              .catch(error => console.error("Error:", error));
             });
           });
         });
     </script>
+    
+        
 
     <!-- drag and drop file -->
     <script>

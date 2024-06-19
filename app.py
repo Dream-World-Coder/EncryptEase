@@ -1,21 +1,20 @@
-from flask import Flask, render_template, request, g, redirect, url_for, send_file
+from flask import Flask, render_template, request, send_file
 import os
 import logging
 from user_agents import parse
 from python_functions.key_generator import make_random_key
 
-    # msg/ Txt ciphers
+# msg/ Txt ciphers
 from python_functions.encryption.mode_ecb import encrypt_message
 from python_functions.decryption.mode_ecb import decrypt_message
 
-    # File Ciphers
+# File Ciphers
 from python_functions.encryption.file_encrypt.mode_ctr import encrypt_file
 from python_functions.decryption.file_decrypt.mode_ctr import decrypt_file
 
+import tempfile
 
 app = Flask(__name__)
-
-
 
 # Ensuring the log directory exists
 log_dir = "logs"
@@ -56,13 +55,9 @@ def log_request_info():
 def before_request():
     log_request_info()
 
-
-
-
 @app.route('/')
 def home():
-    return render_template('index.html')
-
+    return render_template('index.html', max_size=10)
 
 @app.route('/gen_key', methods=['POST'])
 def gen_key():
@@ -81,6 +76,29 @@ def encrypt():
     except Exception as e:
         return {"error": f"Encryption error: {e}"}
 
+@app.route('/encrypt_file_route', methods=['POST'])
+def encrypt_file_route():
+    if 'file' not in request.files or 'key' not in request.form:
+        return {"error": "File and key are required."}
+    
+    uploaded_file = request.files['file']
+    save_path = os.path.join(tempfile.gettempdir(), uploaded_file.filename)
+    output_path = save_path
+    uploaded_file.save(save_path)
+    
+    key_hex = request.form["key"]
+    try:
+        key = bytes.fromhex(key_hex)
+        encrypt_file(key=key, input_file_path=save_path, output_file_path=output_path)
+        
+        response = send_file(output_path, as_attachment=True, download_name=uploaded_file.filename)
+        response.call_on_close(lambda: os.remove(save_path))
+        response.call_on_close(lambda: os.remove(output_path))
+        return response
+    
+    except Exception as e:
+        return {"error": f"Encryption error: {e}"}
+
 @app.route('/decrypt', methods=['POST'])
 def decrypt():
     encrypted_msg = request.form["encrypted_msg"]
@@ -92,14 +110,28 @@ def decrypt():
     except Exception as e:
         return {"error": f"Decryption error: {e}"}
 
+@app.route('/decrypt_file_route', methods=['POST'])
+def decrypt_file_route():
+    if 'encrypted_file' not in request.files or 'key' not in request.form:
+        return {"error": "File and key are required."}
+    
+    uploaded_file = request.files['encrypted_file']
+    save_path = os.path.join(tempfile.gettempdir(), uploaded_file.filename)
+    output_path = save_path
+    uploaded_file.save(save_path)
+    
+    key_hex = request.form["key"]
+    try:
+        key = bytes.fromhex(key_hex)
+        decrypt_file(key=key, input_file_path=save_path, output_file_path=output_path)
+        
+        response = send_file(output_path, as_attachment=True, download_name=uploaded_file.filename)
+        response.call_on_close(lambda: os.remove(save_path))
+        response.call_on_close(lambda: os.remove(output_path))
+        return response
+    
+    except Exception as e:
+        return {"error": f"Decryption error: {e}"}
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5500)
-
-  
-  # 16 byte
-  # b'\xa8\x11`7\x03x\x0fS\x02\x19\xaa\x80#1\xcb\xb3'
-  # Invalid key size (392) for AES.
-  # b"b'\\xa8\\x11`7\\x03x\\x0fS\\x02\\x19\\xaa\\x80#1\\xcb\\xb3'"
-  
-# contacts er niche dan dik e faq box deoa jete pare
