@@ -60,6 +60,32 @@
 
 
 
+.decrypt_file_subheading::after{
+  content: 'Wait for few seconds for the message to be decrypted.';
+  position: absolute;
+  top: calc(-50% * var(--base-value) / 18);
+  left: calc(25% * var(--base-value) / 18);
+  width: calc(300px * var(--base-value) / 18);
+  height: calc(200px * var(--base-value) / 18);
+  -webkit-backdrop-filter: blur(calc(15px * var(--base-value) / 18));
+  backdrop-filter: blur(calc(15px * var(--base-value) / 18));
+  background-color: rgba(255, 255, 255, 0.247);
+  border: calc(2px * var(--base-value) / 18) solid rgba(255, 255, 255, 0.864);
+  border-radius: calc(0.5rem * var(--base-value) / 18);
+  transition: all 0.3s;
+  z-index: 206;
+  transform: scale3d(0, 0, 0);
+  color: black;
+  padding: calc(20px * var(--base-value) / 18);
+  font-size: calc(1.5rem * var(--base-value) / 18);
+}
+
+
+.decrypt_file_subheading:hover::after {
+  transform: scale3d(1, 1, 1);
+}
+
+
 
 /* ------------------------------------
 Media Queries:
