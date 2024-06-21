@@ -70,7 +70,7 @@
     </script>
 </head>
 
-<body>
+<body id="boody">
     <noscript>
         Enable javascript to see this
     </noscript>
@@ -235,16 +235,16 @@
                                 <img alt="" class="paste-img pst" src="{{url_for('static', filename='icons/paste.svg')}}">
                             </span> -->
                         </div>
-                        <!-- <div class="results borderX cen flex-col justify-center align-center f-gap-1 dark-glass mondia">
+                        <div class="results borderX cen flex-col justify-center align-center f-gap-1 dark-glass mondia">
                             <div class="dropArea flexed" id="drp1"
                                 ondragenter="dragEnter(event)" 
                                 ondragover="dragOver(event)" 
                                 ondragleave="dragLeave(event)" 
                                 ondrop="drop(event)"
                                 >
-                                or<br>Drag and drop files here
+                                or<br>Drag and drop files here <br> ¡Sorry drag and drop is currently not supported!
                             </div>
-                        </div> -->
+                        </div>
                         <!-- input key -->
                         <div class="key_input flexed">
                             <label for="key">Enter Key: </label>
@@ -301,15 +301,15 @@
                                 <img alt="" class="paste-img pst" src="{{url_for('static', filename='icons/paste.svg')}}">
                             </span> -->
                         </div>
-                        <!-- <div class="results borderX cen flex-col justify-center align-center f-gap-1 dark-glass mondia">
+                        <div class="results borderX cen flex-col justify-center align-center f-gap-1 dark-glass mondia">
                             <div class="dropArea flexed" id="drp2" ondragenter="dragEnter(event)" 
                             ondragover="dragOver(event)" 
                             ondragleave="dragLeave(event)" 
                             ondrop="drop(event)"
                             >
-                                or <br>Drag and drop files here
+                                or <br>Drag and drop files here<br> ¡Sorry drag and drop is currently not supported!
                             </div>
-                        </div> -->
+                        </div>
                         <!-- input key -->
                         <div class="key_input flexed">
                             <label for="key-ii">Enter Key: </label>
@@ -533,19 +533,22 @@
                     alert(data.error);
                   } else {
                     if (data.key) {
-                      document.querySelector(".key-display").textContent = data.key;
+                        alert("Key Generated Successfully!");
+                        document.querySelector(".key-display").textContent = data.key;
                     }
                     if (data.encrypted_msg) {
-                      document.querySelector(".encrypted-msg-display").textContent = data.encrypted_msg;
+                        alert("Message Encrypted Successfully!");
+                        document.querySelector(".encrypted-msg-display").textContent = data.encrypted_msg;
                     }
                     if (data.decrypted_msg) {
-                      document.querySelector(".decrypted-msg-display").textContent = data.decrypted_msg;
+                        alert("Message Decrypted Successfully!");
+                        document.querySelector(".decrypted-msg-display").textContent = data.decrypted_msg;
                     }
                     if (data.encrypted_file) {
-                      alert("File Encrypted Successfully!");
+                        alert("File Encrypted Successfully!");
                     }
                     if (data.decrypted_file) {
-                      alert("File Decrypted Successfully!");
+                        alert("File Decrypted Successfully!");
                     }
                   }
                 }

@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function applyDarkMode(isDarkMode) {
-  const root = document.documentElement;
+  // const root = document.documentElement;
+  const root = document.getElementById('boody');
   const sunIcon = document.getElementById("sun-icon");
   const moonIcon = document.getElementById("moon-icon");
   // const invertButton = document.getElementById('invert-button');
@@ -26,7 +27,8 @@ function applyDarkMode(isDarkMode) {
 }
 
 function toggleDarkMode() {
-  const root = document.documentElement;
+  // const root = document.documentElement;
+  const root = document.getElementById('boody');
   const sunIcon = document.getElementById("sun-icon");
   const moonIcon = document.getElementById("moon-icon");
   // const invertButton = document.getElementById('invert-button');
