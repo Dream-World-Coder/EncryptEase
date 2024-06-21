@@ -48,7 +48,14 @@
 ----------------------------------------------------------- */
 /* for desktops none*/
 .nav-phone{
+  position: relative;
   display: none;
+}
+
+
+:root{
+  --h: 60%;
+  --p-left: 40px;
 }
 
 .nav-phone img{
@@ -58,7 +65,7 @@
 
 .nav-elements{
   z-index: 8999999;
-  position: fixed;
+  position: fixed !important;
   top: 0;
   right: 0;
   height: 100%;
@@ -77,14 +84,6 @@
   transition: all 0.3s;
 }
 
-
-
-
-
-:root{
-  --h: 60%;
-  --p-left: 40px;
-}
 .nav-items{
   height: var(--h);
   display: flex;
@@ -161,7 +160,7 @@
     display: flex;
   }
 }
-
+/* small phones */
 @media (max-width: 380px) {
   .items{
     font-size: 1.3rem;

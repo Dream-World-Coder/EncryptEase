@@ -6,7 +6,6 @@
 
 }
 
-/* why i caanot add it directly in root? document.Element */
 .dark-mode{
   background-color: black;
   color: aliceblue;
@@ -14,14 +13,17 @@
 
 /* already in utils.css */
 .invert{
-  /* filter: invert(0.85)contrast(0.8); */
-  filter: invert(1);
+  filter: invert(0.85)contrast(0.8);
+  /* filter: invert(1); */
 }
 
-body.invert{
+/* 
+#boody.invert{
   background-color: rgb(255, 255, 255) !important;
   color: rgb(0, 0, 0) !important;
-}
+} 
+*/
+
 /* already in header.css */
 .invert-button{
   position: relative;

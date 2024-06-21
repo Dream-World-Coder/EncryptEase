@@ -5,7 +5,7 @@
 }
 
 header {
-  position: fixed;
+  position: fixed !important;
   top: var(--top);
   left: var(--left);
   width: calc(100% - 2 * var(--left));
