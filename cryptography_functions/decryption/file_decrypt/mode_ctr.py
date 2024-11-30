@@ -2,7 +2,6 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import padding
 import base64
-import os
 
 def decrypt_file(key, input_file_path, output_file_path):
     try:
@@ -11,7 +10,7 @@ def decrypt_file(key, input_file_path, output_file_path):
 
         # Decode the base64 encoded data
         encrypted_data = base64.b64decode(encrypted_data)
-        
+
         # Extract the nonce and the ciphertext
         nonce = encrypted_data[:16]  # The first 16 bytes are the nonce
         ciphertext = encrypted_data[16:]
@@ -29,7 +28,7 @@ def decrypt_file(key, input_file_path, output_file_path):
             f.write(decrypted_data)
 
         return "File decrypted successfully."
-    
+
     except Exception as e:
         return f'Some error occurred, Please Try again.\n\t{e}'
 

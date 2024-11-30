@@ -3,16 +3,14 @@ from flask import jsonify
 import os
 import logging
 from user_agents import parse
-from python_functions.key_generator import make_random_key
+from cryptography_functions.key_generator import make_random_key
 # import binascii
 
-# msg/ Txt ciphers
-from python_functions.encryption.mode_ecb import encrypt_message
-from python_functions.decryption.mode_ecb import decrypt_message
+from cryptography_functions.encryption.mode_ecb import encrypt_message
+from cryptography_functions.decryption.mode_ecb import decrypt_message
 
-# File Ciphers
-from python_functions.encryption.file_encrypt.mode_ctr import encrypt_file
-from python_functions.decryption.file_decrypt.mode_ctr import decrypt_file
+from cryptography_functions.encryption.file_encrypt.mode_ctr import encrypt_file
+from cryptography_functions.decryption.file_decrypt.mode_ctr import decrypt_file
 
 import tempfile
 
