@@ -27,115 +27,34 @@
             property="og:url"
             content="https://encryptease.pythonanywhere.com"
         />
-        <!-- <meta property="og:image" content="https://encryptease.pythonanywhere.com/images/og-image.png"/> -->
         <meta property="og:type" content="website" />
-        <style>
-            .temporary-message {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                padding: 10px 20px;
-                max-width: 300px;
-                max-height: 60px;
-                width: auto;
-                height: auto;
-                background-color: lightskyblue;
-                color: #232323;
-                font-family: Arial, Helvetica, sans-serif;
-                font-size: 16px;
-                border-radius: 4px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-                animation: fadeInOut 5s ease-in-out;
-                z-index: 1000000;
-            }
-
-            .error {
-                background-color: red;
-                color: black;
-            }
-            .success {
-                background-color: lightgreen;
-                color: black;
-            }
-            .message {
-                background-color: lightskyblue;
-                color: black;
-            }
-
-            @keyframes fadeInOut {
-                0%,
-                100% {
-                    opacity: 0;
-                }
-                10%,
-                90% {
-                    opacity: 1;
-                }
-            }
-        </style>
 
         <!-- css -->
-        <link
-            rel="stylesheet"
-            href="{{url_for('static', filename='css/style.css')}}"
-        />
-        <link
-            rel="stylesheet"
-            href="{{url_for('static', filename='css/fonts.css')}}"
-        />
+        <link rel="stylesheet" href="/static/css/style.css" />
+        <link rel="stylesheet" href="/static/css/fonts.css" />
 
         <!-- components -->
-        <link
-            rel="stylesheet"
-            href="{{url_for('static', filename='css/components/scrollbar.css')}}"
-        />
-        <link
-            rel="stylesheet"
-            href="{{url_for('static', filename='css/components/nav.css')}}"
-        />
-        <link
-            rel="stylesheet"
-            href="{{url_for('static', filename='css/components/dark-mode.css')}}"
-        />
+        <link rel="stylesheet" href="/static/css/components/scrollbar.css" />
+        <link rel="stylesheet" href="/static/css/components/nav.css" />
+        <link rel="stylesheet" href="/static/css/components/dark-mode.css" />
 
         <!-- components s1 -->
-        <link
-            rel="stylesheet"
-            href="{{url_for('static', filename='css/components/s1/general.css')}}"
-        />
-        <link
-            rel="stylesheet"
-            href="{{url_for('static', filename='css/components/s1/header.css')}}"
-        />
-        <link
-            rel="stylesheet"
-            href="{{url_for('static', filename='css/components/s1/key_gen.css')}}"
-        />
-        <link
-            rel="stylesheet"
-            href="{{url_for('static', filename='css/components/s1/encrypt.css')}}"
-        />
-        <link
-            rel="stylesheet"
-            href="{{url_for('static', filename='css/components/s1/decrypt.css')}}"
-        />
+        <link rel="stylesheet" href="/static/css/components/s1/general.css" />
+        <link rel="stylesheet" href="/static/css/components/s1/header.css" />
+        <link rel="stylesheet" href="/static/css/components/s1/key_gen.css" />
+        <link rel="stylesheet" href="/static/css/components/s1/encrypt.css" />
+        <link rel="stylesheet" href="/static/css/components/s1/decrypt.css" />
 
         <!-- components s2 -->
-        <link
-            rel="stylesheet"
-            href="{{url_for('static', filename='css/components/s2/s2.css')}}"
-        />
+        <link rel="stylesheet" href="/static/css/components/s2/s2.css" />
 
         <!-- utils -->
-        <link
-            rel="stylesheet"
-            href="{{url_for('static', filename='css/utils.css')}}"
-        />
+        <link rel="stylesheet" href="/static/css/utils.css" />
 
         <!-- favicon -->
         <link
             rel="shortcut icon"
-            href="{{url_for('static', filename='images/favicon.png')}}"
+            href="/static/images/favicon.png"
             type="image/x-icon"
         />
 
@@ -190,6 +109,49 @@
                 }
             }
         </style>
+        <style>
+            .temporary-message {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                background-color: var(--clr2);
+                color: #ffffff;
+                font-family: "Poppins", sans-serif;
+                font-size: 1rem;
+                border-radius: 4px;
+                z-index: 1000;
+                animation: fadeInOut 5s ease-in-out;
+                border: 1px solid;
+            }
+
+            .error {
+                color: #721c24;
+                background-color: #f8d7da;
+                border-color: #f5c6cb;
+            }
+            .success {
+                color: #155724;
+                background-color: #d4edda;
+                border-color: #c3e6cb;
+            }
+            .message {
+                color: #0c5460;
+                background-color: #d1ecf1;
+                border-color: #bee5eb;
+            }
+
+            @keyframes fadeInOut {
+                0%,
+                100% {
+                    opacity: 0;
+                }
+                10%,
+                90% {
+                    opacity: 1;
+                }
+            }
+        </style>
     </head>
 
     <body>
@@ -202,10 +164,7 @@
         <header class="flex align-center justify-between">
             <!-- logo -->
             <div class="icon flexed">
-                <img
-                    src="{{url_for('static', filename='images/logo.png')}}"
-                    alt="logo"
-                />
+                <img src="/static/images/logo.png" alt="logo" />
             </div>
 
             <!-- dark-mode + phone nav -->
@@ -889,215 +848,44 @@
         </section>
 
         <!-- scripts -->
-        <!-- AJAX -->
-        <script>
-            function displayMessage(message, type = "info") {
-                const messageElement = document.createElement("div");
-                messageElement.classList.add("temporary-message", type);
-                messageElement.textContent = message;
-                document.body.appendChild(messageElement);
-                setTimeout(() => {
-                    messageElement.remove();
-                }, 3000);
-            }
-
-            function showLoader() {
-                document.getElementById("loader").style.display = "flex";
-            }
-            function hideLoader() {
-                document.getElementById("loader").style.display = "none";
-            }
-
-            document.addEventListener("DOMContentLoaded", function () {
-                document.querySelectorAll("form").forEach((form) => {
-                    form.addEventListener("submit", function (event) {
-                        event.preventDefault();
-                        showLoader();
-
-                        const formData = new FormData(form);
-                        const url = form.action;
-                        const method = form.method;
-
-                        fetch(url, {
-                            method: method,
-                            body: formData,
-                        })
-                            .then((response) => {
-                                if (response.ok) {
-                                    // Check if the response is a file download
-                                    const contentDisposition =
-                                        response.headers.get(
-                                            "Content-Disposition",
-                                        );
-                                    if (
-                                        contentDisposition &&
-                                        contentDisposition.indexOf(
-                                            "attachment",
-                                        ) !== -1
-                                    ) {
-                                        return response.blob();
-                                    }
-                                    // text
-                                    else {
-                                        return response.json();
-                                    }
-                                } else {
-                                    return response.json().then((data) => {
-                                        throw new Error(
-                                            data.error || "Unknown error",
-                                        );
-                                    });
-                                }
-                            })
-                            .then((data) => {
-                                // Handle file download
-                                if (data instanceof Blob) {
-                                    const url =
-                                        window.URL.createObjectURL(data);
-                                    const a = document.createElement("a");
-                                    a.style.display = "none";
-                                    a.href = url;
-                                    a.download =
-                                        form.querySelector(
-                                            'input[type="file"]',
-                                        ).files[0].name;
-                                    document.body.appendChild(a);
-                                    a.click();
-                                    window.URL.revokeObjectURL(url);
-                                    console.log("File Processed Successfully!");
-                                }
-                                // Handle JSON response
-                                else {
-                                    if (data.error) {
-                                        displayMessage(data.error);
-                                    } else {
-                                        if (data.generatedKey) {
-                                            displayMessage(
-                                                "Key Generated Successfully!",
-                                                "success",
-                                            );
-                                            document.querySelector(
-                                                ".key-display",
-                                            ).textContent = data.generatedKey;
-                                        } else if (data.encrypted_msg) {
-                                            displayMessage(
-                                                "Message Encrypted Successfully!",
-                                                "success",
-                                            );
-                                            document.querySelector(
-                                                ".encrypted-msg-display",
-                                            ).textContent = data.encrypted_msg;
-                                        } else if (data.decrypted_msg) {
-                                            displayMessage(
-                                                "Message Decrypted Successfully!",
-                                                "success",
-                                            );
-                                            document.querySelector(
-                                                ".decrypted-msg-display",
-                                            ).textContent = data.decrypted_msg;
-                                        } else if (data.encrypted_file) {
-                                            displayMessage(
-                                                "File Encrypted Successfully!",
-                                                "success",
-                                            );
-                                        } else if (data.decrypted_file) {
-                                            displayMessage(
-                                                "File Decrypted Successfully!",
-                                                "success",
-                                            );
-                                        }
-                                    }
-                                }
-                            })
-                            .catch((error) => {
-                                displayMessage(error.message, "error");
-                                console.error("Error:", error);
-                            })
-                            .finally(() => {
-                                hideLoader();
-                            });
-                    });
-                });
-            });
-        </script>
-
-        <!-- drag and drop file -->
-        <script>
-            function dragEnter(event) {
-                event.preventDefault();
-                event.target.classList.add("hover");
-            }
-
-            function dragOver(event) {
-                event.preventDefault();
-                event.target.classList.add("hover");
-            }
-
-            function dragLeave(event) {
-                event.target.classList.remove("hover");
-            }
-
-            function drop(event) {
-                event.preventDefault();
-                event.target.classList.remove("hover");
-
-                // Get the files that were dropped
-                const files = event.dataTransfer.files;
-
-                // Process the dropped files
-                for (let file of files) {
-                    console.log("Dropped file:", file.name);
-                }
-            }
-        </script>
-
-        <!-- components -->
-        <!-- nav -->
         <script
-            src="{{url_for('static', filename='js/components/nav.js')}}"
+            src="/static/js/components/ajax.js"
             type="text/javascript"
         ></script>
-
-        <!-- faq -->
         <script
-            src="{{url_for('static', filename='js/components/faq.js')}}"
+            src="/static/js/utilities/drag-drop.js"
             type="text/javascript"
         ></script>
-
-        <!-- utilities -->
-        <!-- smooth scrolling -->
         <script
-            src="{{url_for('static', filename='js/functions/scroll-related/smooth-scrolling.js')}}"
+            src="/static/js/components/nav.js"
             type="text/javascript"
         ></script>
-
-        <!-- share -->
         <script
-            src="{{url_for('static', filename='js/utilities/share.js')}}"
+            src="/static/js/components/faq.js"
             type="text/javascript"
         ></script>
-
-        <!-- copy -->
         <script
-            src="{{url_for('static', filename='js/utilities/copy.js')}}"
+            src="/static/js/functions/scroll-related/smooth-scrolling.js"
             type="text/javascript"
         ></script>
-
-        <!-- paste -->
         <script
-            src="{{url_for('static', filename='js/utilities/paste.js')}}"
+            src="/static/js/utilities/share.js"
             type="text/javascript"
         ></script>
-
-        <!-- email -->
         <script
-            src="{{url_for('static', filename='js/utilities/email.js')}}"
+            src="/static/js/utilities/copy.js"
             type="text/javascript"
         ></script>
-
-        <!-- dark mode -->
         <script
-            src="{{url_for('static', filename='js/functions/dark-mode/dark-mode.js')}}"
+            src="/static/js/utilities/paste.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="/static/js/utilities/email.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="/static/js/functions/dark-mode/dark-mode.js"
             type="text/javascript"
         ></script>
     </body>
