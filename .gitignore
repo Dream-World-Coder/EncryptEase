@@ -1,10 +1,14 @@
-encrypt_venv
 .DS_store
+.env
+.vscode
+.venv
+.ropeproject
+
 logs
 website/
-temp.bakup.py
-.vscode
+
 uploads
 processed_files
 python_functions/others
 python_functions/Quora2.jpeg
+__pycache__/
