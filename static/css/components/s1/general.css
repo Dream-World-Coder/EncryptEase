@@ -6,7 +6,6 @@
 
 #s1 {
   opacity: 1;
-  /* height: calc(310vh * var(--base-value) / 18); */
   height: calc(500vh * var(--base-value) / 18);
 }
 
@@ -19,7 +18,9 @@
   margin-top: calc(var(--margin-top) * var(--base-value) / 18);
 }
 
-.gen_key, .encrypt_input, .decrypt_input {
+.gen_key,
+.encrypt_input,
+.decrypt_input {
   margin-bottom: calc(var(--flex-gap) * var(--base-value) / 18);
 }
 
@@ -46,63 +47,75 @@
   gap: calc(var(--flex-gap) * var(--base-value) / 18);
 }
 
+input#gen_key,
+input#message,
+input#encrypted_msg,
+input#file,
+input#encrypted_file,
+input#key,
+input#key-ii,
+input#key-f-i,
+input#key-f-ii {
+  border-color: var(--bg2);
+}
 
 /* ----------------------------------------------
  MEDIA QUERIES 
  to fix: large gapping in mobiles
  --------------------------------------------------------*/
 
- /* phone */
+/* phone */
 @media (max-width: 767px) {
   .results {
     width: calc(75vw * var(--base-value) / 18);
     border-radius: 20px;
   }
-  
-  #key, #key-ii{
+
+  #key,
+  #key-ii {
     width: 97px;
   }
 
-  .main{
+  .main {
     margin-top: 26vh;
   }
 
-  #s1{
+  #s1 {
     height: 355vh;
   }
 }
 
 @media (max-width: 380px) {
-  #s1{
+  #s1 {
     height: 415vh;
   }
-  .main{
+  .main {
     margin-top: 26vh;
   }
 }
 
 @media (max-width: 380px) {
-  #s1{
+  #s1 {
     height: 475vh;
   }
 }
 
 /* tablet */
 @media (min-width: 768px) and (max-width: 1024px) {
-  #s1{
+  #s1 {
     height: 325vh;
   }
-  .main{
+  .main {
     margin-top: 26vh;
   }
-  .forms{
+  .forms {
     margin-top: calc(20vh * var(--base-value) / 18);
   }
 }
 
 /* next hub */
 @media (width: 1024px) and (height: 600px) {
-  #s1{
+  #s1 {
     height: 500vh;
   }
 }

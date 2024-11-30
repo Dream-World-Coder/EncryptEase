@@ -16,7 +16,7 @@
 }
 
 .key_gen_subheading::before {
-  content: 'Generate your unique key, it will be used to encrypt and decrypt your messages files.c45646a54cb2d7f4 e9deaa16975cbd3d is the default key. You should generate a new one to make your encryptions unique and secure.';
+  content: "Generate your unique key, it will be used to encrypt and decrypt your messages files.c45646a54cb2d7f4 e9deaa16975cbd3d is the default key. You should generate a new one to make your encryptions unique and secure.";
   position: absolute;
   top: calc(-50% * var(--base-value) / 18);
   left: calc(25% * var(--base-value) / 18);
@@ -40,14 +40,14 @@
   transform: scale3d(1, 1, 1);
 }
 
-.key_gen_subheading::after{
-  content: '';
+.key_gen_subheading::after {
+  content: "";
   position: relative;
   top: 0;
   left: 0%;
   width: 40px;
   height: 80px;
-  background-image: url('../../../icons/tree.svg');
+  background-image: url("../../../icons/tree.svg");
   background-repeat: no-repeat;
   z-index: 100;
 }

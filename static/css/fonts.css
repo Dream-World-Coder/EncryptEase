@@ -1,57 +1,31 @@
-
-
-/* ---------------------------------------------------
-              Dahlia - file needed
---------------------------------------------------------------- */
-
 @font-face {
   font-display: swap;
   font-family: Dahlia;
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/dahlia.woff2) format("woff2")
+  src: url(../fonts/dahlia.woff2) format("woff2");
 }
-
-/* ---------------------------------------------------
-              Mondia - file needed
---------------------------------------------------------------- */
-
-@font-face {
-  font-display: swap;
-  font-family: Mondia;
-  font-style: normal;
-  font-weight: 400;
-  src: url(../fonts/mondia.woff2) format("woff2")
-}
-
-/* ---------------------------------------------------
-              MondiaThin - file needed
---------------------------------------------------------------- */
 
 @font-face {
   font-display: swap;
   font-family: MondiaThin;
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/mondia-thin.woff2) format("woff2")
+  src: url(../fonts/mondia-thin.woff2) format("woff2");
 }
-
-/* ---------------------------------------------------
-              MilitaryScribe - file needed
---------------------------------------------------------------- */
 
 @font-face {
   font-display: swap;
   font-family: MilitaryScribe;
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/scribe.woff2) format("woff2")
+  src: url(../fonts/scribe.woff2) format("woff2");
 }
 
 @font-face {
   font-display: swap;
-  font-family: Tangerine;
+  font-family: sourceserif;
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/Tangerine-Regular.ttf) format("truetype");
+  src: url(../fonts/source-serif-400-normal.woff) format("woff");
 }

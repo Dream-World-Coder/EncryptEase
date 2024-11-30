@@ -76,82 +76,6 @@
                 "image": "https://encryptease.pythonanywhere.com/static/images/og-image.jpg"
             }
         </script>
-        <style>
-            .loader-container {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 99999999999999;
-                isolation: isolate;
-            }
-
-            .loader {
-                border: 5px solid #f3f3f3;
-                border-top: 5px solid #3498db;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                animation: spin 1s linear infinite;
-            }
-
-            @keyframes spin {
-                0% {
-                    transform: rotate(0deg);
-                }
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
-        </style>
-        <style>
-            .temporary-message {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                padding: 10px 20px;
-                background-color: var(--clr2);
-                color: #ffffff;
-                font-family: "Poppins", sans-serif;
-                font-size: 1rem;
-                border-radius: 4px;
-                z-index: 1000;
-                animation: fadeInOut 5s ease-in-out;
-                border: 1px solid;
-            }
-
-            .error {
-                color: #721c24;
-                background-color: #f8d7da;
-                border-color: #f5c6cb;
-            }
-            .success {
-                color: #155724;
-                background-color: #d4edda;
-                border-color: #c3e6cb;
-            }
-            .message {
-                color: #0c5460;
-                background-color: #d1ecf1;
-                border-color: #bee5eb;
-            }
-
-            @keyframes fadeInOut {
-                0%,
-                100% {
-                    opacity: 0;
-                }
-                10%,
-                90% {
-                    opacity: 1;
-                }
-            }
-        </style>
     </head>
 
     <body>
@@ -673,7 +597,7 @@
                         </div>
                         <!-- other icons -->
                         <div
-                            class="icons flex-col f-gap-2 justify-start p-top-1"
+                            class="icons flex-col f-gap-2 justify-start"
                         >
                             <div class="github-logo flex align-center f-gap-1">
                                 <a

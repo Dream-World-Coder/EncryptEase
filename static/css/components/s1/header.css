@@ -1,7 +1,6 @@
 :root {
   --top: calc(4vh * var(--base-value) / 18);
   --left: calc(4vw * var(--base-value) / 18);
-
 }
 
 header {
@@ -17,7 +16,7 @@ header {
   position: relative;
   height: calc(8vh * var(--base-value) / 18);
   width: calc(8vw * var(--base-value) / 18);
-  font-family: MilitaryScribe, 'Courier New', Courier, monospace;
+  font-family: MilitaryScribe, "Courier New", Courier, monospace;
   font-size: calc(1.6rem * var(--base-value) / 18);
 }
 
@@ -32,7 +31,7 @@ header {
   position: relative;
   height: calc(8vh * var(--base-value) / 18);
   width: calc(4vw * var(--base-value) / 18);
-  font-family: MilitaryScribe, 'Courier New', Courier, monospace;
+  font-family: MilitaryScribe, "Courier New", Courier, monospace;
   font-size: calc(1.6rem * var(--base-value) / 18);
   z-index: 99;
 }
@@ -53,12 +52,12 @@ header {
 }
 
 .heading {
-    --heading-font-size: 2.15rem;
+  --heading-font-size: 2.15rem;
   padding-top: calc(17vh * var(--base-value) / 18);
   height: calc(20vh * var(--base-value) / 18);
   font-size: var(--heading-font-size);
-  font-family: MondiaThin, 'Courier New', Courier, monospace;
-    line-height: 2rem;
+  font-family: sourceserif, MondiaThin, "Courier New", Courier, monospace;
+  line-height: 2rem;
 }
 
 .strong {
@@ -80,16 +79,13 @@ header {
 
 .subheading {
   height: calc(15vh * var(--base-value) / 18);
-  font-family: Mondia, 'Courier New', Courier, monospace;
+  font-family: sourceserif, "Courier New", Courier, monospace;
   font-size: calc(var(--heading-font-size) - 1.5rem);
 }
-
 
 .phone {
   display: none;
 }
-
-
 
 /* ------------------------------------
 Media Queries:
@@ -144,7 +140,6 @@ Media Queries:
   .icon img {
     transform: scale3d(0.3, 0.3, 0.3);
   }
-
 }
 
 /* tablet */
@@ -166,7 +161,6 @@ Media Queries:
   }
 }
 
-
 @media (min-width: 820px) and (max-width: 1023px) {
   .strong {
     font-size: calc(var(--heading-font-size) - 0.5rem);
@@ -186,7 +180,6 @@ Media Queries:
 }
 
 @media (min-width: 1600px) {
-
   .heading1 {
     margin-left: calc(30% * var(--base-value) / 18);
     font-size: calc(var(--heading-font-size) + 0.5rem);
@@ -195,5 +188,4 @@ Media Queries:
   .heading2 {
     margin-left: calc(38% * var(--base-value) / 18);
   }
-
 }
