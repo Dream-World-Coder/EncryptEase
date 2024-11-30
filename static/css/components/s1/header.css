@@ -53,11 +53,12 @@ header {
 }
 
 .heading {
+    --heading-font-size: 2.15rem;
   padding-top: calc(17vh * var(--base-value) / 18);
   height: calc(20vh * var(--base-value) / 18);
   font-size: var(--heading-font-size);
-  font-family: Tangerine, 'Courier New', Courier, monospace;
-  line-height: calc(2.5rem * var(--base-value) / 18);
+  font-family: MondiaThin, 'Courier New', Courier, monospace;
+    line-height: 2rem;
 }
 
 .strong {
@@ -65,13 +66,12 @@ header {
 }
 
 .app_name {
-  font-size: calc(4.6rem * var(--base-value) / 18);
+  font-size: calc(3rem * var(--base-value) / 18);
 }
 
 .heading1 {
   margin-left: calc(20% * var(--base-value) / 18);
   font-style: bold;
-  font-size: calc(var(--heading-font-size) + 0.5rem);
 }
 
 .heading2 {
@@ -81,8 +81,9 @@ header {
 .subheading {
   height: calc(15vh * var(--base-value) / 18);
   font-family: Mondia, 'Courier New', Courier, monospace;
-  font-size: calc(var(--heading-font-size) - 0.5rem);
+  font-size: calc(var(--heading-font-size) - 1.5rem);
 }
+
 
 .phone {
   display: none;

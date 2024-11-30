@@ -1,7 +1,7 @@
 encrypt_venv
 .DS_store
 logs
-html-website
+website/
 temp.bakup.py
 .vscode
 uploads

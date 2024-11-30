@@ -5,10 +5,7 @@
  }
 
 :root {
-  /* --bg1: antiquewhite; */
-  --bg1: bisque;
-  /* --bg1: rgb(254, 254, 254); */
-  /* --bg2: linear-gradient(180deg, lightgreen, rgb(212,217,88)); */
+  --bg1: #fbfbfb;
   --bg2: rgb(189, 23, 189);
   --bg3: rgb(98, 0, 255);
   --clr1: #BB004B;
@@ -28,12 +25,9 @@ html {
 body, html {
   background-color: var(--bg1);
   color: black;
-  /* scroll-behavior: smooth; */
-  /* background: url('../images/bg2.svg'); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-color: #ff0066; */
 }
 
 section {
@@ -81,5 +75,5 @@ Media Queries:
     height: 85.56vh;
     padding: 40px;
   }
-  
+
 }
