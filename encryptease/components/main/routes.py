@@ -5,7 +5,7 @@ main_bp = Blueprint('main_bp', __name__)
 
 @main_bp.route('/')
 def home():
-  return render_template('index.html', max_size=17)
+  return render_template('index.html', max_size=30) # + in cipher_file bp
 
 
 

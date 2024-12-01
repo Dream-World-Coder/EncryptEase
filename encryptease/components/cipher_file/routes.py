@@ -12,7 +12,7 @@ file_bp = Blueprint('file_bp', __name__)
 
 @file_bp.route('/encrypt/file', methods=['POST'])
 def encrypt_file_route():
-    max_file_size_mb = 17
+    max_file_size_mb = 30
 
     # Check for file and key in request
     if 'file' not in request.files or 'key' not in request.form:

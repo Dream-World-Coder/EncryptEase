@@ -1,6 +1,10 @@
 function copyToClipboard(index) {
+    // there is  a data-index in each copy button.
+    // and each copy button copies the data of the results-div of that index
+    // i wasnot that good with forEach back then, so i have given different ids matching the index to each results div
+
     var resultDiv = document.querySelector(`#resultDiv${index}`);
-    var resultText = resultDiv.innerText.replace("result: ", "");
+    var resultText = resultDiv.innerText;
 
     // Create a temporary input element
     var tempInput = document.createElement("input");
@@ -18,7 +22,7 @@ function copyToClipboard(index) {
     document.body.removeChild(tempInput);
 
     // Alert the user that the password has been copied
-    alert("Copied to clipboard: " + resultText);
+    // displayMessage(`Copied to clipboard: ${resultText}`, "success");
 }
 
 // Attach click event listeners to each copy button
@@ -26,5 +30,9 @@ var copyBtns = document.querySelectorAll(".copy-btn");
 copyBtns.forEach(function (btn, index) {
     btn.addEventListener("click", function () {
         copyToClipboard(index);
+        btn.innerText = "copied!";
+        setTimeout(() => {
+            btn.innerText = "copy";
+        }, 2000);
     });
 });
