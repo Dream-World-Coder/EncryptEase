@@ -3,9 +3,10 @@
 .vscode
 .venv
 .ropeproject
+.backup/
 
-logs
-website/
+logs/
+.old-logs/
 
 uploads
 processed_files

@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EncryptEase</title>
+        <meta
+            name="description"
+            content="EncryptEase provides secure, effortless encryption for your sensitive data. Generate keys, encrypt, and decrypt messages easily with our user-friendly interface."
+        />
+        <meta
+            name="keywords"
+            content="encryption, data security, key generation, encrypt message, encrypt file, decrypt message, decrypt file, secure data, protect data, cryptography, EncryptEase"
+        />
+        <meta name="author" content="Subhajit Gorai" />
+        <link rel="canonical" href="https://encryptease.pythonanywhere.com" />
+
+        <meta
+            property="og:title"
+            content="EncryptEase - Secure Your Data with Effortless Encryption"
+        />
+        <meta
+            property="og:description"
+            content="EncryptEase provides secure, effortless encryption for your sensitive data. Generate keys, encrypt, and decrypt messages easily with our user-friendly interface."
+        />
+        <meta
+            property="og:url"
+            content="https://encryptease.pythonanywhere.com"
+        />
+        <meta property="og:type" content="website" />
+
+        <!-- css -->
+        <link rel="stylesheet" href="/static/css/style.css" />
+        <link rel="stylesheet" href="/static/css/fonts.css" />
+
+        <!-- components -->
+        <link rel="stylesheet" href="/static/css/components/scrollbar.css" />
+        <link rel="stylesheet" href="/static/css/components/nav.css" />
+        <link rel="stylesheet" href="/static/css/components/dark-mode.css" />
+
+        <!-- components s1 -->
+        <link rel="stylesheet" href="/static/css/components/s1/general.css" />
+        <link rel="stylesheet" href="/static/css/components/s1/header.css" />
+        <link rel="stylesheet" href="/static/css/components/s1/key_gen.css" />
+        <link rel="stylesheet" href="/static/css/components/s1/encrypt.css" />
+        <link rel="stylesheet" href="/static/css/components/s1/decrypt.css" />
+
+        <!-- components s2 -->
+        <link rel="stylesheet" href="/static/css/components/s2/s2.css" />
+
+        <!-- utils -->
+        <link rel="stylesheet" href="/static/css/utils.css" />
+
+        <!-- favicon -->
+        <link
+            rel="shortcut icon"
+            href="/static/images/favicon.png"
+            type="image/x-icon"
+        />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "EncryptEase",
+                "url": "https://encryptease.pythonanywhere.com",
+                "author": {
+                    "@type": "Person",
+                    "name": "Subhajit Gorai"
+                },
+                "description": "EncryptEase provides secure, effortless encryption for your sensitive data. Generate keys, encrypt, and decrypt messages easily with our user-friendly interface.",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "EncryptEase"
+                },
+                "image": "https://encryptease.pythonanywhere.com/static/images/og-image.jpg"
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="loader" class="loader-container" style="display: none">
+            <div class="loader"></div>
+        </div>
+
+        <noscript>Please Enable Javascript</noscript>
+
+        <header class="flex align-center justify-between">
+            <!-- logo -->
+            <div class="icon flexed">
+                <img src="/static/images/logo.png" alt="logo" />
+            </div>
+
+            <!-- dark-mode + phone nav -->
+            <div class="dm ph-nav flexed f-gap-2">
+                <!-- dark-mode -->
+                <div id="invert-button" class="invert-button flexed">
+                    <div id="sun-icon" class="sun flexed">
+                        <img
+                            alt="sun"
+                            class=""
+                            src="{{url_for('static', filename='icons/sun.svg')}}"
+                        />
+                    </div>
+                    <div id="moon-icon" class="moon flexed">
+                        <img
+                            alt="moon"
+                            class=""
+                            src="{{url_for('static', filename='icons/moon.svg')}}"
+                        />
+                    </div>
+                </div>
+
+                <!-- nav -->
+                <div id="phNav" class="nav-phone">
+                    <!-- nav - icon -->
+                    <img
+                        src="{{url_for('static', filename='icons/nav.svg')}}"
+                        alt="ham"
+                        id="ham"
+                        class="ham"
+                    />
+                    <!-- main nav -->
+                    <div id="n-el" class="nav-elements">
+                        <!-- li -->
+                        <div class="nav-items flex-col justify-evenly">
+                            <div class="items flexed justify-start">
+                                <a href="#keyGen">Generate Key</a>
+                            </div>
+                            <div class="items flexed justify-start">
+                                <a href="#encode">Encrypt Message</a>
+                            </div>
+                            <div class="items flexed justify-start">
+                                <a href="#encode_file">Encrypt Files</a>
+                            </div>
+                            <div class="items flexed justify-start">
+                                <a href="#decode">Decrypt Message</a>
+                            </div>
+                            <div class="items flexed justify-start">
+                                <a href="#decode_file">Decrypt Files</a>
+                            </div>
+                            <div class="items flexed justify-start">
+                                <a href="#about_div">About</a>
+                            </div>
+                            <div class="items flexed justify-start">
+                                <a href="#contact_div">Contacts</a>
+                            </div>
+                        </div>
+                        <!-- others -->
+                        <div class="share flex-col f-gap-2">
+                            <div class="send flexed justify-start f-gap-2">
+                                <div id="share-link" class="flexed">
+                                    <img
+                                        id="s-logo"
+                                        class="flexed"
+                                        src="{{url_for('static', filename='icons/share.svg')}}"
+                                        alt=""
+                                    />
+                                </div>
+                                Share
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- desktop nav -->
+        <nav>
+            <div class="nav fixed flexed">
+                <div class="ul full flex-col justify-between">
+                    <div class="li border flexed justify-start">
+                        <a href="#keyGen">Generate Key</a>
+                    </div>
+                    <div class="li border flexed justify-start">
+                        <a href="#encode">Encrypt Message</a>
+                    </div>
+                    <div class="li border flexed justify-start">
+                        <a href="#encode_file">Encrypt Files</a>
+                    </div>
+                    <div class="li border flexed justify-start">
+                        <a href="#decode">Decrypt Message</a>
+                    </div>
+                    <div class="li border flexed justify-start">
+                        <a href="#decode_file">Decrypt Files</a>
+                    </div>
+                    <div class="li border flexed justify-start">
+                        <a href="#about_div">About</a>
+                    </div>
+                    <div class="li border flexed justify-start">
+                        <a href="#contact_div">Contacts</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section id="s1" class="bg-set">
+            <div class="s1__container full flex-col">
+                <!-- for desktops -->
+                <div class="heading flex-col desktop">
+                    <div class="heading1">
+                        <span class="scribe app_name">EncryptEase: </span>Secure
+                        Your Valuable Information
+                    </div>
+                    <div class="heading2">
+                        Effortless Encryption, That
+                        <span class="dahlia strong">ONLY YOU</span>
+                        Can Decode
+                    </div>
+                </div>
+
+                <!-- for phones -->
+                <div class="heading flex-col phone">
+                    <div class="heading1 cen">
+                        <span class="scribe app_name">EncryptEase</span>
+                    </div>
+                    <br />
+                    <div class="heading2 cen">
+                        <!-- Powerful Encryption -->
+                    </div>
+                </div>
+
+                <div class="main flex-col">
+                    <!-- keygen -->
+                    <div id="keyGen" class="keygen forms">
+                        <div class="subheading flexed cen key_gen_subheading">
+                            Generate Key
+                        </div>
+                        <form
+                            action="{{url_for('main_bp.gen_key')}}"
+                            method="post"
+                        >
+                            <div class="gen_key flexed">
+                                <label for="gen_key"
+                                    >Enter Key size(16byte, 24byte or 32byte):
+                                </label>
+                                <input
+                                    type="number"
+                                    name="gen_key"
+                                    required
+                                    id="gen_key"
+                                    min="16"
+                                    max="32"
+                                    step="8"
+                                    placeholder="Enter Size"
+                                />
+                            </div>
+                            <button class="btn cen pb" type="submit">
+                                Get Key
+                            </button>
+                            <div
+                                class="results res cen flex align-center justify-start dark-glass mondia"
+                            >
+                                key:
+                                <div
+                                    class="generated-password key-display"
+                                    id="resultDiv0"
+                                >
+                                    {{key}}
+                                </div>
+                            </div>
+                            <button
+                                type="button"
+                                class="copy-btn btn cen"
+                                data-index="0"
+                            >
+                                copy
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Encoding -->
+                    <!-- msg -->
+                    <div id="encode" class="encryption forms">
+                        <div class="subheading flexed cen encrypt_subheading">
+                            Encrypt Message
+                        </div>
+                        <form action="/encrypt/string" method="post">
+                            <div class="encrypt_input flexed">
+                                <label for="message"
+                                    >Enter Message to Encrypt:
+                                </label>
+                                <input
+                                    type="text"
+                                    name="message"
+                                    id="message"
+                                    placeholder="Hi!"
+                                    required
+                                />
+                                <span
+                                    class="paste"
+                                    onclick="pasteText('message')"
+                                >
+                                    <img
+                                        alt=""
+                                        class="paste-img"
+                                        src="{{url_for('static', filename='icons/paste.svg')}}"
+                                    />
+                                </span>
+                            </div>
+                            <div class="key_input flexed">
+                                <label for="key">Enter Key: </label>
+                                <input
+                                    type="text"
+                                    name="key"
+                                    id="key"
+                                    placeholder="Enter key"
+                                    value="c45646a54cb2d7f4e9deaa16975cbd3d"
+                                />
+                                <span class="paste" onclick="pasteText('key')">
+                                    <img
+                                        alt=""
+                                        class="paste-img"
+                                        src="{{url_for('static', filename='icons/paste.svg')}}"
+                                    />
+                                </span>
+                            </div>
+                            <button class="btn cen pb" type="submit">
+                                Encrypt
+                            </button>
+                        </form>
+                        <div
+                            class="results cen flex-col justify-center align-center f-gap-1 dark-glass mondia"
+                        >
+                            <div class="cen">Encrypted message:</div>
+                            <div
+                                class="generated-password encrypted-msg-display"
+                                id="resultDiv1"
+                            >
+                                {{encrypted_msg}}
+                            </div>
+                        </div>
+                        <button class="copy-btn btn cen" data-index="1">
+                            copy
+                        </button>
+                    </div>
+                    <!-- file -->
+                    <div id="encode_file" class="encryption forms">
+                        <div
+                            class="subheading flexed cen encrypt_file_subheading"
+                        >
+                            Encrypt File
+                        </div>
+                        <form
+                            action="/encrypt/file"
+                            method="post"
+                            enctype="multipart/form-data"
+                        >
+                            <div class="encrypt_input flexed">
+                                <label for="file"
+                                    >Choose File[size<{{max_size}}mb]:
+                                </label>
+                                <input
+                                    class="f-input"
+                                    type="file"
+                                    name="file"
+                                    id="file"
+                                    required
+                                />
+                            </div>
+                            <div
+                                class="results cen flex-col justify-center align-center f-gap-1 dark-glass mondia"
+                            >
+                                <div
+                                    class="dropArea flexed"
+                                    id="drp1"
+                                    ondragenter="dragEnter(event)"
+                                    ondragover="dragOver(event)"
+                                    ondragleave="dragLeave(event)"
+                                    ondrop="drop(event)"
+                                >
+                                    or<br />Drag and drop files here <br />
+                                    ¡Sorry drag and drop is currently not
+                                    supported!
+                                </div>
+                            </div>
+                            <!-- input key -->
+                            <div class="key_input flexed">
+                                <label for="key">Enter Key: </label>
+                                <input
+                                    type="text"
+                                    name="key"
+                                    id="key-f-i"
+                                    placeholder="Enter key"
+                                    value="c45646a54cb2d7f4e9deaa16975cbd3d"
+                                />
+                                <span
+                                    class="paste"
+                                    onclick="pasteText('key-f-i')"
+                                >
+                                    <img
+                                        alt=""
+                                        class="paste-img"
+                                        src="{{url_for('static', filename='icons/paste.svg')}}"
+                                    />
+                                </span>
+                            </div>
+                            <button class="btn cen pb" type="submit">
+                                Encrypt
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Decoding -->
+                    <!-- msg -->
+                    <div id="decode" class="decryption forms">
+                        <div class="subheading flexed cen decrypt_subheading">
+                            Decrypt Message
+                        </div>
+                        <form action="/decrypt/string" method="post">
+                            <div class="decrypt_input flexed">
+                                <label for="encrypted_msg"
+                                    >Enter message to decrypt:
+                                </label>
+                                <input
+                                    type="text"
+                                    name="encrypted_msg"
+                                    id="encrypted_msg"
+                                    placeholder="none"
+                                    required
+                                />
+                                <span
+                                    class="paste"
+                                    onclick="pasteText('encrypted_msg')"
+                                >
+                                    <img
+                                        alt=""
+                                        class="paste-img"
+                                        src="{{url_for('static', filename='icons/paste.svg')}}"
+                                    />
+                                </span>
+                            </div>
+
+                            <div class="key_input flexed">
+                                <label for="key-ii">Enter Key: </label>
+                                <input
+                                    type="text"
+                                    name="key"
+                                    id="key-ii"
+                                    placeholder="Enter key"
+                                    value="c45646a54cb2d7f4e9deaa16975cbd3d"
+                                />
+                                <span
+                                    class="paste"
+                                    onclick="pasteText('key-ii')"
+                                >
+                                    <img
+                                        alt=""
+                                        class="paste-img"
+                                        src="{{url_for('static', filename='icons/paste.svg')}}"
+                                    />
+                                </span>
+                            </div>
+                            <button class="btn cen pb" type="submit">
+                                Decrypt
+                            </button>
+                        </form>
+                        <div
+                            class="results cen flex-col justify-center align-center f-gap-1 dark-glass mondia"
+                        >
+                            Decrypted message:
+                            <div
+                                class="generated-password decrypted-msg-display"
+                                id="resultDiv2"
+                            >
+                                {{decrypted_msg}}
+                            </div>
+                        </div>
+                        <button class="copy-btn btn cen" data-index="2">
+                            copy
+                        </button>
+                    </div>
+
+                    <!-- file -->
+                    <div id="decode_file" class="decryption forms">
+                        <div
+                            class="subheading flexed cen decrypt_file_subheading"
+                        >
+                            Decrypt File
+                        </div>
+                        <form
+                            action="/decrypt/file"
+                            method="post"
+                            enctype="multipart/form-data"
+                        >
+                            <div class="decrypt_input flexed">
+                                <label for="encrypted_file"
+                                    >Choose File[size<{{max_size}}mb]:
+                                </label>
+                                <input
+                                    class="f-input"
+                                    type="file"
+                                    name="encrypted_file"
+                                    id="encrypted_file"
+                                    placeholder="none"
+                                    required
+                                />
+                            </div>
+                            <div
+                                class="results cen flex-col justify-center align-center f-gap-1 dark-glass mondia"
+                            >
+                                <div
+                                    class="dropArea flexed"
+                                    id="drp2"
+                                    ondragenter="dragEnter(event)"
+                                    ondragover="dragOver(event)"
+                                    ondragleave="dragLeave(event)"
+                                    ondrop="drop(event)"
+                                >
+                                    or <br />Drag and drop files here<br />
+                                    ¡Sorry drag and drop is currently not
+                                    supported!
+                                </div>
+                            </div>
+                            <!-- input key -->
+                            <div class="key_input flexed">
+                                <label for="key-ii">Enter Key: </label>
+                                <input
+                                    type="text"
+                                    name="key"
+                                    id="key-f-ii"
+                                    placeholder="Enter key"
+                                    value="c45646a54cb2d7f4e9deaa16975cbd3d"
+                                />
+                                <span
+                                    class="paste"
+                                    onclick="pasteText('key-f-ii')"
+                                >
+                                    <img
+                                        alt=""
+                                        class="paste-img"
+                                        src="{{url_for('static', filename='icons/paste.svg')}}"
+                                    />
+                                </span>
+                            </div>
+                            <button class="btn cen pb" type="submit">
+                                Decrypt
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="s2" class="bg-set">
+            <div class="s2__container full flex-col">
+                <!-- about -->
+                <div id="about_div" class="about">
+                    <div id="about_header" class="h1" data-Header="">About</div>
+                    <div class="about-info info">
+                        <br />
+                        Welcome to EncryptEase, your go-to solution for
+                        effortless data encryption and security.
+                        <br />
+                        My platform empowers you to generate secure keys,
+                        encrypt messages, and decrypt them with ease, ensuring
+                        that your sensitive information remains safe and
+                        confidential.
+                        <br />
+                        <br />
+                        Created by Subhajit Gorai, EncryptEase prioritizes user
+                        privacy and data security by not storing any user data.
+                        Feel free to use this platform as much as you need. But
+                        don't use it for any malicious purposes.
+                    </div>
+                </div>
+
+                <!-- contacts -->
+                <div id="contact_div" class="contact">
+                    <div id="contact_header" class="h1" data-Header="">
+                        Contact
+                    </div>
+                    <div class="contact-info info">
+                        <br />
+                        Feel Free to contact me if needed.
+                        <br />
+                        <br />
+                        <!-- email -->
+                        <div
+                            id="e-logo"
+                            class="email flexed f-gap-1 justify-start"
+                        >
+                            <img
+                                src="{{url_for('static', filename='icons/email.svg')}}"
+                                alt="email"
+                            />
+                            <span>Email</span>
+                        </div>
+                        <!-- other icons -->
+                        <div class="icons flex-col f-gap-2 justify-start">
+                            <div
+                                class="github-logo flex align-center f-gap-1 p-top-05"
+                            >
+                                <a
+                                    id="github"
+                                    href="https://github.com/Dream-World-Coder"
+                                    target="_blank"
+                                    title="github"
+                                    rel="noopener"
+                                >
+                                    <img
+                                        src="{{url_for('static', filename='icons/github.svg')}}"
+                                        alt="github"
+                                    />
+                                </a>
+                                GitHub
+                            </div>
+                        </div>
+                        <!-- portfolio -->
+                        <div class="portfolio flexed f-gap-1 justify-start">
+                            <a
+                                id="portfolio"
+                                href="https://subhajit.pages.dev"
+                                target="_blank"
+                                title="portfolio"
+                                rel="noopener"
+                            >
+                                <img
+                                    src="{{url_for('static', filename='icons/website.svg')}}"
+                                    alt="portfolio"
+                                />
+                            </a>
+                            My Personal Website
+                        </div>
+                    </div>
+                </div>
+
+                <!-- faq box -->
+                <div class="faq_div flex-col justify-between" id="faq_div">
+                    <div id="faq_header" class="h1" data-Header="">FAQs</div>
+                    <div class="faq_container flex-col">
+                        <div class="faq_qns faq1">
+                            <div class="qn q1 flex justify-between">
+                                How to Encode?
+                                <div class="open-close flexed">
+                                    <img
+                                        src="{{url_for('static', filename='icons/dwn_arr.svg')}}"
+                                        alt=""
+                                        class="downArrow"
+                                    />
+                                    <img
+                                        src="{{url_for('static', filename='icons/up_arr.svg')}}"
+                                        alt=""
+                                        class="upArrow"
+                                    />
+                                </div>
+                            </div>
+                            <div class="ans a1">
+                                Provide your message or file, then generate a
+                                key of yours. Then fill up details and press
+                                <code>Encrypt</code> Button. You can Encode
+                                using that.
+                            </div>
+                        </div>
+
+                        <div class="faq_qns faq2">
+                            <div class="qn q2 flex justify-between">
+                                How to Decode?
+                                <div class="open-close flexed">
+                                    <img
+                                        src="{{url_for('static', filename='icons/dwn_arr.svg')}}"
+                                        alt=""
+                                        class="downArrow"
+                                    />
+                                    <img
+                                        src="{{url_for('static', filename='icons/up_arr.svg')}}"
+                                        alt=""
+                                        class="upArrow"
+                                    />
+                                </div>
+                            </div>
+                            <div class="ans a2">
+                                Enter the Encrypted message or file and
+                                <strong
+                                    >provide the same key you used to
+                                    encode.</strong
+                                >
+                                After that you can Decode.
+                            </div>
+                        </div>
+
+                        <div class="faq_qns faq3">
+                            <div class="qn q3 flex justify-between">
+                                Is my encrypted data secure?
+                                <div class="open-close flexed">
+                                    <img
+                                        src="{{url_for('static', filename='icons/dwn_arr.svg')}}"
+                                        alt=""
+                                        class="downArrow"
+                                    />
+                                    <img
+                                        src="{{url_for('static', filename='icons/up_arr.svg')}}"
+                                        alt=""
+                                        class="upArrow"
+                                    />
+                                </div>
+                            </div>
+                            <div class="ans a3">
+                                Yes, if you generate a unique key of yours and
+                                use that for encryption,
+                                <span>only you</span> can decode it.
+                            </div>
+                        </div>
+
+                        <div class="faq_qns faq4">
+                            <div class="qn q4 flex justify-between">
+                                Should I generate a unique key?
+                                <div class="open-close flexed">
+                                    <img
+                                        src="{{url_for('static', filename='icons/dwn_arr.svg')}}"
+                                        alt=""
+                                        class="downArrow"
+                                    />
+                                    <img
+                                        src="{{url_for('static', filename='icons/up_arr.svg')}}"
+                                        alt=""
+                                        class="upArrow"
+                                    />
+                                </div>
+                            </div>
+                            <div class="ans a4">
+                                Yes it's recommended to do so. But you can also
+                                encrypt using the default key, but it's not
+                                unique that way, hence not that secure.
+                            </div>
+                        </div>
+
+                        <div class="faq_qns faq5">
+                            <div class="qn q5 flex justify-between">
+                                How the encryption works?
+                                <div class="open-close flexed">
+                                    <img
+                                        src="{{url_for('static', filename='icons/dwn_arr.svg')}}"
+                                        alt=""
+                                        class="downArrow"
+                                    />
+                                    <img
+                                        src="{{url_for('static', filename='icons/up_arr.svg')}}"
+                                        alt=""
+                                        class="upArrow"
+                                    />
+                                </div>
+                            </div>
+                            <div class="ans a5">
+                                The code uses python
+                                <code>cryptography</code> module to encrypt
+                                data. And specifically it uses GCTR Mode. The
+                                cryptography module in Python allows you to
+                                encrypt text and files. It uses a secret key
+                                (like a complex password) and a random
+                                initialization vector (IV) to scramble the data
+                                with AES-256 encryption in GCTR mode. Imagine
+                                XORing your message with a random stream of bits
+                                - that's essentially what happens. This makes
+                                the data unreadable without the key. Decryption
+                                works by reversing the process with the same key
+                                and IV, making your files and messages secure.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- scripts -->
+        <script
+            src="/static/js/components/ajax.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="/static/js/utilities/drag-drop.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="/static/js/components/nav.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="/static/js/components/faq.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="/static/js/functions/scroll-related/smooth-scrolling.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="/static/js/utilities/share.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="/static/js/utilities/copy.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="/static/js/utilities/paste.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="/static/js/utilities/email.js"
+            type="text/javascript"
+        ></script>
+        <script
+            src="/static/js/functions/dark-mode/dark-mode.js"
+            type="text/javascript"
+        ></script>
+    </body>
+</html>
