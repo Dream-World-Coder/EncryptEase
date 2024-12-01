@@ -5,11 +5,12 @@
 }
 
 :root {
-    --bg1: #fbfbfb;
+    --bg1: #f2e5bf;
     --bg2: rgb(189, 23, 189);
     --bg3: rgb(98, 0, 255);
-    --clr1: #bb004b;
-    --clr2: #ff0066;
+
+    --clr1: #cb6040;
+    --clr2: #257180;
 
     --desktop-base-value: 18;
     --tablet-base-value: 16;
@@ -24,11 +25,28 @@ html {
 
 body,
 html {
+    background-color: color(srgb 0.6927 0.7428 0.7678);
     background-color: var(--bg1);
-    color: black;
+    /* background: url("../images/high-sky.jpg"); */
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+}
+
+html.invert,
+html.invert body {
+    filter: invert(1);
+    background-color: black;
+    color: white;
+
+    & img,
+    & input {
+        filter: invert(1);
+    }
+}
+html.invert .nav .ul .li a {
+    color: white;
 }
 
 section {
@@ -41,50 +59,62 @@ section {
     z-index: 9;
 }
 
+/* ----------------------------------------- */
 .loader-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 99999999999999;
     isolation: isolate;
 }
-
 .loader {
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 8px;
+    width: 100%;
+    --c: no-repeat linear-gradient(#6100ee 0 0);
+    background: var(--c), var(--c), #d7b8fc;
+    background-size: 60% 100%;
+    animation: l16 3s infinite;
 }
-
-@keyframes spin {
+@keyframes l16 {
     0% {
-        transform: rotate(0deg);
+        background-position:
+            -150% 0,
+            -150% 0;
+    }
+    66% {
+        background-position:
+            250% 0,
+            -150% 0;
     }
     100% {
-        transform: rotate(360deg);
+        background-position:
+            250% 0,
+            250% 0;
     }
 }
+/* ----------------------------------------- */
 .temporary-message {
     position: fixed;
     top: 20px;
     right: 20px;
     padding: 10px 20px;
-    background-color: var(--clr2);
+    background-color: black;
     color: #ffffff;
     font-family: "Poppins", sans-serif;
     font-size: 1rem;
     border-radius: 4px;
     z-index: 1000;
-    animation: fadeInOut 5s ease-in-out;
     border: 1px solid;
+    height: auto;
+    max-height: 50px;
 }
 
 .error {
@@ -101,17 +131,6 @@ section {
     color: #0c5460;
     background-color: #d1ecf1;
     border-color: #bee5eb;
-}
-
-@keyframes fadeInOut {
-    0%,
-    100% {
-        opacity: 0;
-    }
-    10%,
-    90% {
-        opacity: 1;
-    }
 }
 
 /* ::-webkit-scrollbar{background-color: #ff0066;} */
