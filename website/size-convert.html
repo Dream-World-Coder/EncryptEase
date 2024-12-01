@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Size Converter</title>
+  <style>
+    body{
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Font Size Converter</h1>
+  <label for="desktopSize">Enter Desktop Size (px or rem):</label>
+  <input type="text" id="desktopSize" placeholder="e.g., 18px or 1.125rem">
+  <button onclick="convertSize()">Convert</button>
+  
+  <h2>Results:</h2>
+  <p id="tabletSize"></p>
+  <p id="mobileSize"></p>
+  <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+            <div class="elfsight-app-69c94937-6506-4b13-b395-c44d08db0b10" data-elfsight-app-lazy></div>
+        
+  
+  <script>
+    function convertSize() {
+      const input = document.getElementById('desktopSize').value.trim();
+      let size = parseFloat(input);
+      let unit = input.endsWith('rem') ? 'rem' : 'px';
+      
+      if (isNaN(size)) {
+        alert('Please enter a valid number followed by px or rem');
+        return;
+      }
+
+      let tabletSize = (unit === 'rem') ? size * (16 / 18) : size * (16 / 18);
+      let mobileSize = (unit === 'rem') ? size * (14 / 18) : size * (14 / 18);
+
+      document.getElementById('tabletSize').innerText = `Tablet Size: ${tabletSize.toFixed(3)}${unit}`;
+      document.getElementById('mobileSize').innerText = `Mobile Size: ${mobileSize.toFixed(3)}${unit}`;
+    }
+  </script>
+</body>
+</html>
