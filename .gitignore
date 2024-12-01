@@ -11,3 +11,7 @@ logs/
 uploads
 processed_files
 __pycache__/
+data.txt
+data.md
+node_modeuls/
+package-lock.json
