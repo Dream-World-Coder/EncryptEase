@@ -1,0 +1,89 @@
+/* Home.css - Main styling for React-based EncryptEase */
+
+/* Import core styles */
+@import url('../static/css/style.css');
+@import url('../static/css/utils.css');
+@import url('../static/css/fonts.css');
+
+/* Import component styles */
+@import url('../static/css/components/scrollbar.css');
+@import url('../static/css/components/nav.css');
+@import url('../static/css/components/dark-mode.css');
+
+/* Import section styles */
+@import url('../static/css/components/s1/general.css');
+@import url('../static/css/components/s1/header.css');
+@import url('../static/css/components/s1/key_gen.css');
+@import url('../static/css/components/s1/encrypt.css');
+@import url('../static/css/components/s1/decrypt.css');
+@import url('../static/css/components/s2/s2.css');
+
+/* React-specific styles */
+.copied {
+  animation: flash 0.5s;
+}
+
+@keyframes flash {
+  0% { background-color: transparent; }
+  50% { background-color: rgba(0, 255, 0, 0.2); }
+  100% { background-color: transparent; }
+}
+
+/* Form submission loading state */
+.form-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Override for React components */
+.nav-elements.active {
+  display: flex;
+}
+
+.ans.open {
+  display: block;
+}
+
+/* Ensure modals appear on top */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--bg1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+/* Responsive adjustments for React */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  
+  .mobile-nav-toggle {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-nav {
+    display: flex;
+  }
+  
+  .mobile-nav-toggle {
+    display: none;
+  }
+}
