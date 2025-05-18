@@ -1,11 +1,12 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Config:
     FLASK_APP = os.getenv("FLASK_APP", "run")
-    PORT=os.getenv("PORT", 5500)
+    PORT=os.getenv("PORT", 3000)
     SECRET_KEY = os.getenv("SECRET_KEY", os.urandom(128))
-    # print(f"\n{PORT=}\n{SECRET_KEY=}\n\n")
-    # why printing 2 times? first 5500 then 8000
 
 
 class DevelopmentConfig(Config):

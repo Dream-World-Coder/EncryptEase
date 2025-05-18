@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
-from .._utility__functions.encryption.mode_ecb import encrypt_message
-from .._utility__functions.decryption.mode_ecb import decrypt_message
+from .._utility__functions.encryption.encryptor import encrypt_message
+from .._utility__functions.decryption.decryptor import decrypt_message
+import base64
 
 text_bp = Blueprint('text_bp', __name__)
 
@@ -22,12 +23,13 @@ def encrypt():
   if len(key_byte) not in [16, 24, 32]:  # AES requires 16-24-32
     return jsonify({"error": "Invalid key length. Key must be 16, 24, or 32 bytes long."}), 400
 
-  if len(message) > 100000:
-    return jsonify({"error": "message is too long. max 100000 characters."}), 400
+  maxlen:int = 1.5*1024*1024 # 1.5MB
+  if len(message) > maxlen:
+    return jsonify({"error": f"message is too long. max {maxlen//1024//1024} MB."}), 400
 
   try:
-    encrypted_msg = encrypt_message(key=key_byte, message=message.encode('utf-8'))
-    return jsonify({"encrypted_msg": encrypted_msg.decode('utf-8'), "key": key_hex}), 200
+    encrypted_msg:str = encrypt_message(key=key_byte, msg=message, mode="ctr") # so the message is in string format
+    return jsonify({"encrypted_msg": encrypted_msg, "key": key_hex}), 200 
   except Exception as e:
     return jsonify({"error": f"Encryption error: {e}"}), 500
 
@@ -49,9 +51,19 @@ def decrypt_string_route():
     if len(key_byte) not in [16, 24, 32]:
         return jsonify({"error": "Invalid key length. Key must be 16, 24, or 32 bytes long."}), 400
 
+    maxlen:int = 1.5*1024*1024 # 1.5MB
+    if len(encrypted_msg) > maxlen:
+        return jsonify({"error": f"encrypted message is too long. max {maxlen//1024//1024} MB."}), 400
+    
+    # check the encrypted message is base64 encoded
     try:
-        decrypted_msg = decrypt_message(key=key_byte, ciphertext=encrypted_msg.encode('utf-8'))
-        return jsonify({"decrypted_msg": decrypted_msg.decode('utf-8'), "key": key_hex}), 200
+        base64.b64decode(encrypted_msg)
+    except Exception as e:
+        return jsonify({"error": f"Invalid encrypted message."}), 400
+
+    try:
+        decrypted_msg:str = decrypt_message(key=key_byte, ciphertext=encrypted_msg, mode="ctr")
+        return jsonify({"decrypted_msg": decrypted_msg, "key": key_hex}), 200
 
     except Exception as e:
         return jsonify({"error": f"Decryption error: {str(e)}"}), 500
