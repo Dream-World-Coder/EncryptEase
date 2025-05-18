@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg1: #f2e5bf;
+    --bg2: rgb(189, 23, 189);
+    --bg3: rgb(98, 0, 255);
+
+    --clr1: #cb6040;
+    --clr2: #257180;
+
+    --desktop-base-value: 18;
+    --tablet-base-value: 16;
+    --mobile-base-value: 14;
+
+    --base-value: 18;
+}
+
+html {
+    font-size: 100%;
+}
+
+body,
+html {
+    background-color: color(srgb 0.6927 0.7428 0.7678);
+    background-color: var(--bg1);
+    /* background: url("../images/high-sky.jpg"); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+}
+
+html.invert,
+html.invert body {
+    filter: invert(1);
+    background-color: black;
+    color: white;
+
+    & img,
+    & input {
+        filter: invert(1);
+    }
+}
+html.invert .nav .ul .li a {
+    color: white;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 110vh;
+}
+
+#s1 {
+    z-index: 9;
+}
+
+/* ----------------------------------------- */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999999999999;
+    isolation: isolate;
+}
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 8px;
+    width: 100%;
+    --c: no-repeat linear-gradient(#6100ee 0 0);
+    background: var(--c), var(--c), #d7b8fc;
+    background-size: 60% 100%;
+    animation: l16 3s infinite;
+}
+@keyframes l16 {
+    0% {
+        background-position:
+            -150% 0,
+            -150% 0;
+    }
+    66% {
+        background-position:
+            250% 0,
+            -150% 0;
+    }
+    100% {
+        background-position:
+            250% 0,
+            250% 0;
+    }
+}
+/* ----------------------------------------- */
+.temporary-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: black;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    border-radius: 4px;
+    z-index: 1000;
+    border: 1px solid;
+    height: auto;
+    max-height: 50px;
+}
+
+.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.message {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
+/* ::-webkit-scrollbar{background-color: #ff0066;} */
+
+/* ------------------------------------
+Media Queries:
+  767px >> phone
+  768px - 1024px >> tablet
+  1025px >> desktop
+    ** 768 px ipad mini  == phone[better]
+    ** 1024 px ipad pro == tablet
+    so making 768 to phone max and 769 to tablet least
+------------------------------------ */
+
+/* tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    :root {
+        --base-value: var(--tablet-base-value);
+    }
+
+    section {
+        height: calc(110vh * var(--base-value) / 18);
+        padding: 40px;
+    }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    :root {
+        --base-value: var(--mobile-base-value);
+    }
+
+    section {
+        height: 85.56vh;
+        padding: 40px;
+    }
+}

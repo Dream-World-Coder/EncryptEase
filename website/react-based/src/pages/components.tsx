@@ -139,7 +139,7 @@ export const ResultDisplay: React.FC<ResultDisplayProps> = ({
     <div className={`results cen flex-col justify-center align-center f-gap-1 dark-glass mondia ${className}`}>
       <div className="cen">{title}</div>
       <div className={`generated-password ${id}-display`} id={`resultDiv${id}`}>
-        {content}
+        {content.toString()}
       </div>
     </div>
   );

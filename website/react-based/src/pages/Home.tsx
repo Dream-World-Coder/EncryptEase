@@ -60,15 +60,16 @@ const Home: React.FC = () => {
     setIsLoading(true);
     
     try {
-      // Mock API call - replace with actual implementation
-      const response = await fetch('/generate-key', {
+      const formData = new FormData();
+      formData.append('gen_key', keySize.toString());
+
+      const response = await fetch('http://127.0.0.1:3000/generate-key', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ gen_key: keySize })
+        body: formData
       });
       
       const data = await response.json();
-      setGeneratedKey(data.key);
+      setGeneratedKey(data.generatedKey);
     } catch (error) {
       console.error('Error generating key:', error);
     } finally {
@@ -81,15 +82,18 @@ const Home: React.FC = () => {
     setIsLoading(true);
     
     try {
-      // Mock API call - replace with actual implementation
-      const response = await fetch('/encrypt/string', {
+      const formData = new FormData();
+      formData.append('message', message);
+      formData.append('key', encryptionKey);
+      formData.append('mode', 'ctr');
+
+      const response = await fetch('http://127.0.0.1:3000/encrypt/string', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message, key: encryptionKey })
+        body: formData
       });
       
       const data = await response.json();
-      setEncryptedMessage(data.encrypted_message);
+      setEncryptedMessage(data.encrypted_msg);
     } catch (error) {
       console.error('Error encrypting message:', error);
     } finally {
@@ -102,15 +106,18 @@ const Home: React.FC = () => {
     setIsLoading(true);
     
     try {
-      // Mock API call - replace with actual implementation
-      const response = await fetch('/decrypt/string', {
+      const formData = new FormData();
+      formData.append('encrypted_msg', msgToDecrypt);
+      formData.append('key', decryptionKey);
+      formData.append('mode', 'ctr');
+
+      const response = await fetch('http://127.0.0.1:3000/decrypt/string', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ encrypted_msg: msgToDecrypt, key: decryptionKey })
+        body: formData
       });
       
       const data = await response.json();
-      setDecryptedMessage(data.decrypted_message);
+      setDecryptedMessage(data.decrypted_msg);
     } catch (error) {
       console.error('Error decrypting message:', error);
     } finally {
@@ -119,36 +126,70 @@ const Home: React.FC = () => {
   };
 
   // Handle file uploads
-  const handleEncryptFile = async (e: React.FormEvent) => {
+  const handleEncryptFile = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     
     try {
-      // Mock file encryption - implement proper form submission with FormData
-      // This is just a placeholder - actual implementation needed
-      setTimeout(() => {
-        setIsLoading(false);
-        alert('File encryption would happen here.');
-      }, 1000);
+      const formData = new FormData(e.currentTarget);
+      formData.append('mode', 'ctr');
+
+      const response = await fetch('http://127.0.0.1:3000/encrypt/file', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'encrypted_file'; // You might want to use the original filename with a prefix
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        a.remove();
+      } else {
+        throw new Error('File encryption failed');
+      }
     } catch (error) {
       console.error('Error encrypting file:', error);
+      alert('Error encrypting file');
+    } finally {
       setIsLoading(false);
     }
   };
 
-  const handleDecryptFile = async (e: React.FormEvent) => {
+  const handleDecryptFile = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     
     try {
-      // Mock file decryption - implement proper form submission with FormData
-      // This is just a placeholder - actual implementation needed
-      setTimeout(() => {
-        setIsLoading(false);
-        alert('File decryption would happen here.');
-      }, 1000);
+      const formData = new FormData(e.currentTarget);
+      formData.append('mode', 'ctr');
+
+      const response = await fetch('http://127.0.0.1:3000/decrypt/file', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'decrypted_file'; // You might want to use the original filename without the encryption prefix
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        a.remove();
+      } else {
+        throw new Error('File decryption failed');
+      }
     } catch (error) {
       console.error('Error decrypting file:', error);
+      alert('Error decrypting file');
+    } finally {
       setIsLoading(false);
     }
   };

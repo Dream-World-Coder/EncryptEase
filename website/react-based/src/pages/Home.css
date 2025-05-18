@@ -1,22 +1,22 @@
 /* Home.css - Main styling for React-based EncryptEase */
 
 /* Import core styles */
-@import url('../static/css/style.css');
-@import url('../static/css/utils.css');
-@import url('../static/css/fonts.css');
+@import url('/static/css/style.css');
+@import url('/static/css/utils.css');
+@import url('/static/css/fonts.css');
 
 /* Import component styles */
-@import url('../static/css/components/scrollbar.css');
-@import url('../static/css/components/nav.css');
-@import url('../static/css/components/dark-mode.css');
+@import url('/static/css/components/scrollbar.css');
+@import url('/static/css/components/nav.css');
+@import url('/static/css/components/dark-mode.css');
 
 /* Import section styles */
-@import url('../static/css/components/s1/general.css');
-@import url('../static/css/components/s1/header.css');
-@import url('../static/css/components/s1/key_gen.css');
-@import url('../static/css/components/s1/encrypt.css');
-@import url('../static/css/components/s1/decrypt.css');
-@import url('../static/css/components/s2/s2.css');
+@import url('/static/css/components/s1/general.css');
+@import url('/static/css/components/s1/header.css');
+@import url('/static/css/components/s1/key_gen.css');
+@import url('/static/css/components/s1/encrypt.css');
+@import url('/static/css/components/s1/decrypt.css');
+@import url('/static/css/components/s2/s2.css');
 
 /* React-specific styles */
 .copied {

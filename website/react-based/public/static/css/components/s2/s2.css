@@ -1,0 +1,258 @@
+:root {
+    --h1-pad-left: 5rem;
+    --pad-right: 110px;
+    --hh: 600px;
+}
+
+#s2 {
+    height: calc(250vh * var(--base-value) / 18);
+}
+
+.about {
+    padding-top: calc(15vh * var(--base-value) / 18);
+    height: calc(38vh * var(--base-value) / 18);
+    height: 80vh;
+}
+
+.h1 {
+    font-family: Dahlia, "Courier New", Courier, monospace;
+    font-size: calc(3rem * var(--base-value) / 18);
+    padding-left: calc(var(--h1-pad-left) * var(--base-value) / 18 - 2rem);
+    border-bottom: calc(2px * var(--base-value) / 18) solid;
+    margin-left: calc(12% * var(--base-value) / 18);
+    margin-right: calc(70% * var(--base-value) / 18);
+}
+
+.contact {
+    height: calc(60vh * var(--base-value) / 18);
+
+    & img {
+        width: 22px;
+        height: 22px;
+    }
+
+    & a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.p-top-05 {
+    padding-top: 0.5rem;
+}
+.info,
+.faq_container {
+    padding-left: calc(var(--h1-pad-left) * var(--base-value) / 18 + 10rem);
+    font-family: sourceserif, Title, "Courier New", Courier, monospace;
+    font-size: calc(1.25rem * var(--base-value) / 18);
+    padding-right: var(--pad-right);
+}
+
+.portfolio {
+    display: block;
+    position: relative;
+    top: calc(6px * var(--base-value) / 18);
+}
+
+/* FAQ */
+
+#faq_div {
+    opacity: 1;
+    height: calc(var(--hh) + 100px);
+    display: flex;
+}
+
+#faq_header {
+    position: relative;
+    z-index: 200;
+}
+
+#faq_header::before {
+    content: "";
+    position: absolute;
+    top: 0rem;
+    left: 0;
+    width: 40px;
+    height: 80px;
+    background-image: url("../../../icons/m-l.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 100;
+}
+
+.faq_container {
+    height: var(--hh);
+    padding-left: 0;
+    margin-left: calc(var(--h1-pad-left) * var(--base-value) / 18 + 10rem);
+    padding-right: 0px;
+    margin-right: var(--pad-right);
+    display: flex;
+    gap: 1.5rem;
+}
+
+.faq_qns {
+    padding-left: 20px;
+}
+
+.qn {
+    font-size: calc(1.5rem * var(--base-value) / 18);
+    border-bottom: 1px solid;
+    display: flex;
+    padding-left: 15px;
+    z-index: 999;
+}
+
+.ans {
+    font-size: calc(1.2rem * var(--base-value) / 18);
+    padding: 10px 55px 30px 55px;
+    display: none;
+}
+
+.open {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.open-close {
+    display: flex;
+    padding-right: 30px;
+    position: relative;
+
+    & img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.downArrow {
+    position: absolute;
+    display: block;
+}
+
+.upArrow {
+    position: absolute;
+    display: none;
+}
+
+/* ----------------------------------------------------------------------
+  Media Queries
+
+  to fix: gaapping of items,e.g. about contact
+----------------------------------------------------------------------- */
+
+/* phones */
+@media (max-width: 767px) {
+    :root {
+        --hh: 80vh;
+    }
+    .h1 {
+        margin-right: calc(50% * var(--base-value) / 18);
+    }
+
+    .info,
+    .faq_container {
+        padding-left: calc(var(--h1-pad-left) * var(--base-value) / 18 - 3rem);
+        padding-right: 25px;
+    }
+
+    .faq_container {
+        margin-left: calc(var(--h1-pad-left) * var(--base-value) / 18 - 6rem);
+        /* margin-left: 0; */
+        margin-right: 0px;
+        gap: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .about {
+        height: 90vh;
+    }
+
+    .contact {
+        height: 60vh;
+    }
+
+    .qn {
+        font-size: calc(1.3rem * var(--base-value) / 18);
+    }
+
+    .faq_qns {
+        padding-left: 15px;
+    }
+
+    .ans {
+        padding: 5px 0 15px 25px;
+    }
+
+    .open-close {
+        width: 30px;
+        padding-right: 10px;
+        padding-left: 30px;
+    }
+
+    .upArrow,
+    .downArrow {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 380px) {
+    #s2 {
+        height: 230vh;
+    }
+    .about {
+        margin-bottom: 25vh;
+    }
+    :root {
+        --hh: 95vh;
+    }
+}
+
+@media (max-width: 380px) {
+    #s2 {
+        height: 350vh;
+    }
+    .about {
+        height: 110vh;
+    }
+}
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .info {
+        padding-left: calc(var(--h1-pad-left) * var(--base-value) / 18 + 5rem);
+    }
+    .about {
+        height: 60vh;
+    }
+    .contact {
+        height: 40vh;
+    }
+    .faq_container {
+        padding-left: 0;
+        margin-left: calc(var(--h1-pad-left) * var(--base-value) / 18 + 5rem);
+    }
+    #s2 {
+        height: 180vh;
+    }
+}
+
+/* next hub */
+@media (width: 1024px) and (height: 600px) {
+    #s2 {
+        height: 300vh;
+    }
+    .about {
+        height: 90vh;
+    }
+    .contact {
+        height: 70vh;
+    }
+}
